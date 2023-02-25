@@ -25,7 +25,9 @@ const ResetPassword = () => {
   const handlePasswordReset = async (values: ResetPasswordInitialValues) => {
     const { email } = values;
 
-    const { error } = await supabase.auth.resetPasswordForEmail(email);
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "/auth/new_password",
+    });
 
     if (error) {
       dispatch(showNotification({ type: "error", message: error.message }));
