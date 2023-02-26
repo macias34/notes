@@ -19,6 +19,7 @@ const Navbar = () => {
             Log out
           </StyledLink>
           <StyledLink href="/profile">Profile</StyledLink>
+          <StyledLink href="/notes/add">New note</StyledLink>
         </>
       ) : (
         <>
