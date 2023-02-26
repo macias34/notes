@@ -13,7 +13,7 @@ const StyledLink: FC<LinkProps> = ({ children, href, onClick }) => {
     <Link
       onClick={onClick}
       href={href}
-      className="rounded-2xl border-2 border-secondary px-6 py-3 font-semibold tracking-wide text-secondary transition hover:border-accent hover:bg-accent hover:text-primary dark:border-primary "
+      className="rounded-2xl border-2 border-accent px-6 py-3 font-semibold tracking-wide text-accent transition hover:border-accent hover:bg-accent hover:text-primary dark:border-accent"
     >
       {children}
     </Link>
