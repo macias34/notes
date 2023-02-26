@@ -1,11 +1,11 @@
 "use client";
-import { formikConfig } from "@/components/FormikWrapper/FormikWrapper";
+import { formikConfig } from "@/components/Form/FormikWrapper/FormikWrapper";
 import Input from "@/components/UI/Input/Input";
-import FormikWrapper from "@/components/FormikWrapper/FormikWrapper";
+import FormikWrapper from "@/components/Form/FormikWrapper/FormikWrapper";
 import Button from "@/components/UI/Button/Button";
 import { signupSchema } from "@/validations/auth/Signup";
 import { AuthInitialValues } from "@/types/authTypes";
-import { useSupabase } from "../SupabaseProvider/SupabaseProvider";
+import { useSupabase } from "../../Supabase/SupabaseProvider/SupabaseProvider";
 import Link from "next/dist/client/link";
 import { useDispatch } from "react-redux";
 import { showNotification } from "@/features/Notification/notificationSlice";

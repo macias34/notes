@@ -1,5 +1,5 @@
 import "server-only";
-import ResetPassword from "@/components/ResetPassword/ResetPassword";
+import ResetPassword from "@/components/Auth/ResetPassword/ResetPassword";
 
 export const revalidate = 0;
 

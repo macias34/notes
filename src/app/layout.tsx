@@ -1,9 +1,9 @@
 import "server-only";
 
-import Notification from "@/components/Notification/Notification";
+import Notification from "@/components/UI/Notification/Notification";
 import "../styles/globals.css";
-import SupabaseProvider from "@/components/SupabaseProvider/SupabaseProvider";
-import SupabaseListener from "@/components/SupabaseListener/SupabaseListener";
+import SupabaseProvider from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
+import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseListener";
 import { ReactNode } from "react";
 import { createServerClient } from "../utils/supabase-server";
 import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";

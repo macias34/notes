@@ -3,7 +3,7 @@
 import { FC } from "react";
 import useInput from "./useInput";
 import { InputProps } from "./useInput";
-import ValidationError from "../ValidationError/ValidationError";
+import ValidationError from "../../Form/ValidationError/ValidationError";
 import { useFormikContext } from "formik";
 import { useState, useEffect } from "react";
 

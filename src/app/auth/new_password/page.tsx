@@ -3,7 +3,7 @@ import "server-only";
 export const revalidate = 0;
 
 const NewPasswordPage = () => {
-  return <>New password page</>;
+  return;
 };
 
 export default NewPasswordPage;

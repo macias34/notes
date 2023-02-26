@@ -1,6 +1,6 @@
 import "server-only";
 
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from "@/components/UI/Navbar/Navbar";
 
 export default function Home() {
   return (

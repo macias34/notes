@@ -1,6 +1,6 @@
 "use client";
 import StyledLink from "../StyledLink/StyledLink";
-import { useSupabase } from "../SupabaseProvider/SupabaseProvider";
+import { useSupabase } from "../../Supabase/SupabaseProvider/SupabaseProvider";
 
 const Navbar = () => {
   const { supabase, session } = useSupabase();

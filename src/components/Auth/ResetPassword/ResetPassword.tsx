@@ -1,14 +1,15 @@
 "use client";
 
 import Input from "@/components/UI/Input/Input";
-import FormikWrapper from "@/components/FormikWrapper/FormikWrapper";
+import FormikWrapper from "@/components/Form/FormikWrapper/FormikWrapper";
 import Button from "@/components/UI/Button/Button";
-import { formikConfig } from "@/components/FormikWrapper/FormikWrapper";
-import { useSupabase } from "@/components/SupabaseProvider/SupabaseProvider";
+import { formikConfig } from "@/components/Form/FormikWrapper/FormikWrapper";
+import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { showNotification } from "@/features/Notification/notificationSlice";
 import { resetPasswordSchema } from "@/validations/auth/Login";
+import { useEffect } from "react";
 
 interface ResetPasswordInitialValues {
   email: string;
