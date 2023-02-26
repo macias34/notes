@@ -1,5 +1,5 @@
 import { object, string } from "yup";
-import { requiredMessage, invalidEmailMessage } from "../messages";
+import { requiredMessage, invalidEmailMessage, tooShortMessage } from "../messages";
 
 export const loginSchema = object({
   email: string()
@@ -13,3 +13,7 @@ export const resetPasswordSchema = object({
     .email(invalidEmailMessage())
     .required(requiredMessage("email")),
 });
+
+export const newPasswordSchema = object({
+  password : string().min(6, tooShortMessage("password")).required(requiredMessage("password"))
+})
