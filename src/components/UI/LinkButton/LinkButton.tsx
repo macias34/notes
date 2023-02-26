@@ -7,9 +7,7 @@ const LinkButton: FC<LinkProps & HTMLProps<HTMLAnchorElement>> = ({
   className,
 }) => {
   return (
-    <button
-      className={`w-full rounded-md border-2 border-accent px-4 py-3 text-sm font-semibold uppercase tracking-wide text-accent transition hover:bg-accent hover:text-primary ${className}`}
-    >
+    <button className={`button ${className}`}>
       <Link
         className="flex h-full w-full items-center justify-center"
         href={href}

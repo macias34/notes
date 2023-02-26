@@ -16,10 +16,12 @@ module.exports = {
     colors: {
       primary: "#FFFFFF",
       secondary: "#191645",
+      third: "#201983",
       accent: "#43C6AC",
       gray: "#999",
       black: "black",
       red: "#d22e2e",
+      transparent: "transparent",
     },
     extend: {
       fontSize: {

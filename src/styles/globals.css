@@ -17,3 +17,26 @@ svg {
                                   supported by Chrome, Edge, Opera and Firefox */
 }
 
+.input {
+  @apply  mb-2 relative border-gray focus:border-secondary dark:focus:border-primary min-w-fit w-60 appearance-none rounded-lg border-2 bg-primary py-3 px-4 text-black outline-none transition placeholder:text-gray dark:bg-secondary dark:text-primary !important
+}
+
+.button {
+  @apply w-fit rounded-md border-2 bg-transparent border-accent px-10 py-3 text-sm font-semibold uppercase tracking-wide text-accent outline-none transition hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary dark:text-accent dark:hover:text-primary  !important
+}
+
+.label {
+  @apply mb-2 text-xs font-semibold uppercase tracking-wide text-secondary dark:text-primary !important
+}
+
+.anchor {
+ @apply mb-2 text-gray hover:text-secondary no-underline dark:hover:text-primary  !important 
+}
+
+.container {
+  @apply flex flex-col items-center !important
+}
+
+.message {
+  @apply text-sm font-semibold !important
+}

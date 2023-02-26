@@ -13,11 +13,7 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
   type,
 }) => {
   return (
-    <button
-      onClick={onClick}
-      type={type}
-      className={`w-fit rounded-md border-2 border-accent px-10 py-3 text-sm font-semibold uppercase tracking-wide text-accent outline-none transition hover:bg-accent hover:text-primary ${className} focus:bg-accent focus:text-primary `}
-    >
+    <button onClick={onClick} type={type} className={`button ${className} `}>
       {children}
     </button>
   );

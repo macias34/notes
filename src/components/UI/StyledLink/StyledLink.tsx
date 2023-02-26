@@ -10,7 +10,11 @@ interface LinkProps {
 
 const StyledLink: FC<LinkProps> = ({ children, href, onClick }) => {
   return (
-    <Link onClick={onClick} href={href} className="">
+    <Link
+      onClick={onClick}
+      href={href}
+      className="rounded-2xl border-2 border-secondary px-6 py-3 font-semibold tracking-wide text-secondary transition hover:border-accent hover:bg-accent hover:text-primary dark:border-primary "
+    >
       {children}
     </Link>
   );

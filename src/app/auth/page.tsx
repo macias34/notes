@@ -9,8 +9,32 @@ const AuthPage = () => {
   return (
     <Auth
       supabaseClient={supabase}
-      appearance={{ theme: ThemeSupa }}
-      theme="dark"
+      appearance={{
+        theme: ThemeSupa,
+        variables: {
+          default: {
+            fonts: {
+              bodyFontFamily: "inherit",
+              labelFontFamily: "inherit",
+              inputFontFamily: "inherit",
+              buttonFontFamily: "inherit",
+            },
+            colors: {
+              messageText: "#43C6AC",
+              messageTextDanger: "#d22e2e",
+            },
+          },
+        },
+
+        className: {
+          input: "input",
+          button: "button",
+          label: "label",
+          anchor: "anchor",
+          container: "container",
+          message: "message",
+        },
+      }}
     />
   );
 };

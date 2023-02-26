@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-end gap-5 border-b-2 border-secondary p-5 dark:border-primary  ">
+    <nav className="flex justify-center gap-5 p-5">
       {session ? (
         <>
           <StyledLink href="/" onClick={handleLogout}>
@@ -22,8 +22,7 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <StyledLink href="/auth/signin">Sign in</StyledLink>
-          <StyledLink href="/auth/signup">Sign up</StyledLink>
+          <StyledLink href="/auth">Login</StyledLink>
         </>
       )}
     </nav>
