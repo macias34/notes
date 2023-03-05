@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, useState } from "react";
+import { InputHTMLAttributes, Ref, useState } from "react";
 import { Field } from "formik";
 import { InputStyles } from "@/styles/reusableStyles";
 import TextInput from "./TextInput/TextInput";
@@ -11,6 +11,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   type?: InputType;
   placeholder: string;
+  ref?: Ref<HTMLInputElement>;
 }
 
 export interface RenderInput extends Partial<InputProps> {
@@ -32,7 +33,13 @@ const useInput = () => {
     }
   };
 
-  const renderInput = ({ type, placeholder, name, isError }: RenderInput) => {
+  const renderInput = ({
+    type,
+    placeholder,
+    name,
+    isError,
+    onKeyDown,
+  }: RenderInput) => {
     switch (type) {
       case "password": {
         return (
@@ -52,6 +59,7 @@ const useInput = () => {
             name={name}
             type={type}
             isError={isError}
+            onKeyDown={onKeyDown}
           />
         );
     }

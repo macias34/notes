@@ -8,7 +8,7 @@ import {
 } from "@/contexts/newNoteContext/newNoteContext";
 import { useFormikContext } from "formik";
 
-const NoteTitle: FC = () => {
+const NoteExample: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(
     NewNoteContext
   ) as NewNoteFunctions;
@@ -18,7 +18,7 @@ const NoteTitle: FC = () => {
   const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("title" in errors) && e.target.value.length > 0;
+    const valid = !("example" in errors) && e.target.value.length > 0;
 
     if (e.key === "Enter") {
       if (valid) {
@@ -29,12 +29,12 @@ const NoteTitle: FC = () => {
 
   return (
     <Input
-      label="Note title"
+      label="Note example"
       onKeyDown={handleEnterSubmit}
-      placeholder="Enter note title"
-      name="title"
+      placeholder="Enter note example"
+      name="example"
     />
   );
 };
 
-export default NoteTitle;
+export default NoteExample;

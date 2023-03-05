@@ -2,7 +2,13 @@ import { Field } from "formik";
 import useInput, { RenderInput } from "../useInput";
 import { FC } from "react";
 
-const TextInput: FC<RenderInput> = ({ placeholder, name, type, isError }) => {
+const TextInput: FC<RenderInput> = ({
+  placeholder,
+  name,
+  type,
+  isError,
+  onKeyDown,
+}) => {
   const { getInputStyles } = useInput();
 
   return (
@@ -10,6 +16,7 @@ const TextInput: FC<RenderInput> = ({ placeholder, name, type, isError }) => {
       placeholder={placeholder}
       name={name}
       type={type}
+      onKeyDown={onKeyDown}
       spellCheck="false"
       className={getInputStyles(isError)}
     />

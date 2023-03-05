@@ -25,9 +25,8 @@ const FormikWrapper: FC<Props> = ({ children, formikConfig, className }) => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
-      className={className}
     >
-      <Form>{children}</Form>
+      <Form className={className}>{children}</Form>
     </Formik>
   );
 };

@@ -1,13 +1,22 @@
-import { FC, Fragment, ReactElement } from "react";
+import { FC, Fragment, ReactElement, useContext } from "react";
+import {
+  NewNoteContext,
+  NewNoteFunctions,
+  NewNoteSteps,
+} from "@/contexts/newNoteContext/newNoteContext";
 
-interface StepsProps {
-  steps: ReactElement[];
-  currentStep: number;
-  goTo: (index: number) => void;
-}
+import { useFormikContext } from "formik";
 
-const Steps: FC<StepsProps> = ({ steps, currentStep, goTo }) => {
-  const switchStep = (index: number) => {};
+const Steps: FC = () => {
+  const { newNoteData, steps, goTo, currentStep } = useContext(
+    NewNoteContext
+  ) as NewNoteFunctions;
+
+  const { errors } = useFormikContext();
+  const valid = !(NewNoteSteps[currentStep] in errors);
+  const switchStep = (index: number) => {
+    if (valid) goTo(index);
+  };
 
   return (
     <div className="flex items-center">

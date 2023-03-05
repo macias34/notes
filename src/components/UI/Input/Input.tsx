@@ -4,12 +4,18 @@ import { FC } from "react";
 import useInput from "./useInput";
 import { InputProps } from "./useInput";
 import ValidationError from "../../Form/ValidationError/ValidationError";
-import { useFormikContext } from "formik";
+import { useFormikContext, Field } from "formik";
 import { useState, useEffect } from "react";
 
-const Input: FC<InputProps> = ({ label, placeholder, name, type }) => {
+const Input: FC<InputProps> = ({
+  label,
+  placeholder,
+  name,
+  type,
+  onKeyDown,
+}) => {
   const [isError, setIsError] = useState<boolean>(false);
-  const { renderInput } = useInput();
+  const { getInputStyles } = useInput();
   const { errors, touched } = useFormikContext();
 
   useEffect(() => {
@@ -30,7 +36,15 @@ const Input: FC<InputProps> = ({ label, placeholder, name, type }) => {
         >
           {label}
         </label>
-        {renderInput({ type, placeholder, name, isError })}
+        <Field
+          placeholder={placeholder}
+          name={name}
+          type={type}
+          onKeyDown={onKeyDown}
+          spellCheck="false"
+          className={getInputStyles(isError)}
+        />
+
         {isError ? <ValidationError name={name} /> : ""}
       </div>
     </>
