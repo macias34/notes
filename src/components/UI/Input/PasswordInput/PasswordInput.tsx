@@ -22,7 +22,6 @@ const PasswordInput: FC<RenderInput> = ({
         placeholder={placeholder}
         name={name}
         type={visiblePassword ? "text" : "password"}
-        onKeyDown={preventDefaultEnter}
         spellCheck="false"
         className={getInputStyles(isError)}
       />

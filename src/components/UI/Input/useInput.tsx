@@ -21,12 +21,6 @@ export interface RenderInput extends Partial<InputProps> {
 }
 
 const useInput = () => {
-  const preventDefaultEnter = (e: KeyboardEvent) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-    }
-  };
-
   const getInputStyles = (isError: boolean): string => {
     if (isError) {
       return InputStyles + "border-red focus:border-red  dark:focus:border-red";
@@ -65,7 +59,6 @@ const useInput = () => {
 
   return {
     renderInput,
-    preventDefaultEnter,
     getInputStyles,
   };
 };

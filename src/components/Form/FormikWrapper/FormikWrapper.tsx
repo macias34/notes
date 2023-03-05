@@ -13,7 +13,7 @@ export interface formikConfig {
 interface Props {
   children: ReactNode;
   formikConfig: formikConfig;
-  className: string;
+  className?: string;
 }
 
 const FormikWrapper: FC<Props> = ({ children, formikConfig, className }) => {
@@ -25,8 +25,9 @@ const FormikWrapper: FC<Props> = ({ children, formikConfig, className }) => {
       initialValues={initialValues}
       onSubmit={onSubmit}
       validationSchema={validationSchema}
+      className={className}
     >
-      <Form className={className}>{children}</Form>
+      <Form>{children}</Form>
     </Formik>
   );
 };

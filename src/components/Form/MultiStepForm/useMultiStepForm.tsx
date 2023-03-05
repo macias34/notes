@@ -1,10 +1,11 @@
 "use client";
 
+import { useFormikContext } from "formik";
 import { ReactElement, useState } from "react";
 
 const useMultiStepForm = (steps: ReactElement[]) => {
   const [currentStep, setCurrentStep] = useState<number>(0);
-
+  const step = steps[currentStep];
   const next = () =>
     setCurrentStep((i) => {
       if (i >= steps.length - 1) return i;
@@ -27,7 +28,7 @@ const useMultiStepForm = (steps: ReactElement[]) => {
     prev,
     next,
     goTo,
-    step: steps[currentStep],
+    step,
   };
 };
 

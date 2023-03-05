@@ -31,8 +31,8 @@ const Input: FC<InputProps> = ({ label, placeholder, name, type }) => {
           {label}
         </label>
         {renderInput({ type, placeholder, name, isError })}
+        {isError ? <ValidationError name={name} /> : ""}
       </div>
-      {isError ? <ValidationError name={name} /> : ""}
     </>
   );
 };
