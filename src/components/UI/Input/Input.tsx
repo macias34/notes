@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, memo } from "react";
 import useInput from "./useInput";
 import { InputProps } from "./useInput";
 import ValidationError from "../../Form/ValidationError/ValidationError";
@@ -13,6 +13,7 @@ const Input: FC<InputProps> = ({
   name,
   type,
   onKeyDown,
+  className,
 }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const { getInputStyles } = useInput();
@@ -42,7 +43,7 @@ const Input: FC<InputProps> = ({
           type={type}
           onKeyDown={onKeyDown}
           spellCheck="false"
-          className={getInputStyles(isError)}
+          className={`${getInputStyles(isError)} ${className}`}
         />
 
         {isError ? <ValidationError name={name} /> : ""}
@@ -51,4 +52,4 @@ const Input: FC<InputProps> = ({
   );
 };
 
-export default Input;
+export default memo(Input);

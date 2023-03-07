@@ -1,11 +1,11 @@
 import { createContext, Dispatch, SetStateAction, ReactElement } from "react";
 
-export const NewNoteSteps = ["title", "description", "example"];
+export const NewNoteSteps = ["word", "translation", "explanation", "example"];
 export interface newNote {
-  title: string;
-  description: string;
+  word: string;
+  translation: string;
+  explanation: string;
   example: string;
-  isValid: boolean;
 }
 
 export interface NewNoteFunctions {
@@ -16,4 +16,6 @@ export interface NewNoteFunctions {
   goTo: (index: number) => void;
   setNewNoteData: Dispatch<SetStateAction<newNote>>;
 }
+
+export type dispatch = Dispatch<SetStateAction<newNote>>;
 export const NewNoteContext = createContext({});

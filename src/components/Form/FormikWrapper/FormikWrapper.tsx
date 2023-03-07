@@ -2,7 +2,8 @@
 
 import { Formik, Form } from "formik";
 import { ReactNode } from "react";
-import { FC, FormEvent } from "react";
+import { FC } from "react";
+import AutoSubmit from "@/components/AddNote/AutoSubmit/AutoSubmit";
 
 export interface formikConfig {
   initialValues: object;

@@ -2,11 +2,8 @@ import { object, string } from "yup";
 import { requiredMessage } from "../messages";
 
 export const addNoteSchema = object({
-  title: string().required(requiredMessage("note title")),
-  description: string().required(requiredMessage("note explanation")),
-  example: string().required(requiredMessage("note example")),
-});
-
-export const noteTitleSchema = object({
-  title: string().required(requiredMessage("note title")),
+  word: string().required(requiredMessage("word")),
+  translation: string().required(requiredMessage("translation")),
+  explanation: string().required(requiredMessage("explanation")),
+  example: string().required(requiredMessage("example")),
 });

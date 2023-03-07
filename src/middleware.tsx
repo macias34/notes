@@ -20,6 +20,10 @@ export async function middleware(req: NextRequest) {
     const redirectUrl = req.nextUrl.clone();
     redirectUrl.pathname = "/";
     return NextResponse.redirect(redirectUrl);
+  } else if (!session && req.nextUrl.pathname.startsWith("/profile")) {
+    const redirectUrl = req.nextUrl.clone();
+    redirectUrl.pathname = "/auth";
+    return NextResponse.redirect(redirectUrl);
   }
 
   return res;

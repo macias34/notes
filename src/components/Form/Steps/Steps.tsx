@@ -15,18 +15,24 @@ const Steps: FC = () => {
   const { errors } = useFormikContext();
   const valid = !(NewNoteSteps[currentStep] in errors);
   const switchStep = (index: number) => {
-    if (valid) goTo(index);
+    goTo(index);
   };
 
   return (
-    <div className="flex items-center">
+    <div className="absolute bottom-[15%] flex items-center">
       {steps.map((step, index) => {
         const pointIndex = index + 1;
         return (
           <Fragment key={index}>
             <div
               onClick={() => switchStep(index)}
-              className="prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition dark:border-primary dark:hover:bg-primary dark:hover:text-secondary"
+              className={`prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition dark:border-primary dark:hover:bg-primary dark:hover:text-secondary
+              ${
+                index === currentStep
+                  ? "dark:border-primary dark:bg-primary dark:text-secondary"
+                  : ""
+              }
+              `}
             >
               {pointIndex}
             </div>

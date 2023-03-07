@@ -8,26 +8,26 @@ import {
   useRef,
   useState,
 } from "react";
-import Input from "@/components/UI/Input/Input";
+import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 import {
+  dispatch,
   NewNoteContext,
   NewNoteFunctions,
 } from "@/contexts/newNoteContext/newNoteContext";
 import { useFormikContext } from "formik";
-import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 import { handleInput } from "@/app/helpers/notes/handlers";
 
-const NoteExample: FC = () => {
+const NoteExplanation: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(
     NewNoteContext
   ) as NewNoteFunctions;
 
   const [valid, setValid] = useState<boolean>(false);
 
-  const { errors, submitForm } = useFormikContext();
+  const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("example" in errors) && e.target.value.length > 0;
+    const valid = !("explanation" in errors) && e.target.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -36,26 +36,26 @@ const NoteExample: FC = () => {
       }
     }
   };
-  const handleExampleChange = (e: FormEvent<HTMLInputElement>) => {
+  const handleExplanationChange = (e: FormEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     setNewNoteData((prevState) => {
       return {
         ...prevState,
-        example: value,
+        explanation: value,
       };
     });
   };
 
   return (
     <NoteInput
-      label="Note example"
+      label="explanation"
       onKeyDown={handleEnterSubmit}
-      onInput={(e) => handleExampleChange(e)}
-      placeholder="I always loved chitabot"
-      name="example"
+      onInput={(e) => handleExplanationChange(e)}
+      placeholder="Synonym to wealth"
+      name="explanation"
     />
   );
 };
 
-export default NoteExample;
+export default NoteExplanation;
