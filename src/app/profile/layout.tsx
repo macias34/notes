@@ -11,7 +11,7 @@ export default async function RootLayout({
   return (
     <>
       <Navbar />
-      <div className="flex">{children}</div>
+      <div className="h-[80vh]">{children}</div>
     </>
   );
 }

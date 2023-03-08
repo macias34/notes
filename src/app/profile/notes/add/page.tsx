@@ -16,8 +16,10 @@ import SubmitAddNote from "@/components/AddNote/SubmitAddNote/SubmitAddNote";
 import NoteTranslation from "@/components/AddNote/NoteTranslation/NoteTranslation";
 import NoteWord from "@/components/AddNote/NoteWord/NoteWord";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
+import { useRouter } from "next/navigation";
 const NewNotePage = () => {
   const { supabase, session } = useSupabase();
+  const router = useRouter();
 
   const steps = [
     <NoteWord />,
@@ -62,6 +64,7 @@ const NewNotePage = () => {
         console.log(error);
         return;
       }
+      router.push("/profile/notes");
     },
 
     validationSchema: addNoteSchema,
@@ -78,7 +81,7 @@ const NewNotePage = () => {
         steps,
       }}
     >
-      <div className="flex h-[80vh] w-full flex-col items-center justify-evenly gap-5">
+      <div className="flex h-full w-full flex-col items-center justify-evenly gap-5">
         <FormikWrapper
           formikConfig={formikConfig}
           className="flex h-full w-full flex-col items-center justify-center gap-10"
