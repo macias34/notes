@@ -1,8 +1,9 @@
 import "server-only";
 import { createServerClient } from "@/utils/supabase-server";
 import { groupByNote, note } from "@/types/supabase";
-import SingleNote from "@/components/UI/Profile/Notes/SingleNote/SingleNote";
-import { groupBy, chain } from "lodash";
+import dayjs from "dayjs";
+import NoteList from "@/components/Notes/NoteList/NoteList";
+import { groupBy } from "@/helpers/notes/notesHelpers";
 
 const NotesPage = async () => {
   const supabase = createServerClient();
@@ -15,42 +16,28 @@ const NotesPage = async () => {
     .select(`note:notes(*)`)
     .eq("user_id", user_id);
 
-  function groupBy<T>(arr: T[], fn: (item: T) => any) {
-    return arr.reduce<Record<string, T[]>>((prev, curr) => {
-      const groupKey = fn(curr);
-      const group = prev[groupKey] || [];
-      group.push(curr);
-      return { ...prev, [groupKey]: group };
-    }, {});
-  }
+  const filteredNotes = groupBy(notes as groupByNote[], ({ note }) => {
+    const formattedDate = dayjs(note.created_at).format("DD.MM.YYYY");
+    return formattedDate;
+  });
 
-  const filteredNotes = groupBy(
-    notes as groupByNote[],
-    ({ note }) => note.created_at
-  );
+  const dateLabels = Object.keys(filteredNotes);
 
-  console.log(filteredNotes);
-
-  // if (notes)
-  //   return (
-  //     <div className="mt-10 flex h-full w-1/6 flex-col items-start justify-center gap-5 px-10">
-  //       {notes.map(({ note }, index) => {
-  //         // const { note: noteData } = note;
-  //         const { word, created_at, id } = note as note;
-
-  //         return (
-  //           <SingleNote
-  //             key={index}
-  //             word={word}
-  //             created_at={created_at}
-  //             id={id}
-  //           />
-  //         );
-  //       })}
-  //     </div>
-  //   );
-
-  return "es";
+  if (filteredNotes)
+    return (
+      <div className="mt-10 flex h-full w-full items-start justify-center gap-10 px-10">
+        {dateLabels.map((date) => {
+          const notesByDate = filteredNotes[date];
+          console.log(date);
+          return (
+            <div className="flex w-[10%] flex-col items-center gap-5">
+              <span className="text-xl text-gray">{date}</span>
+              <NoteList notes={notesByDate} />
+            </div>
+          );
+        })}
+      </div>
+    );
 };
 
 export default NotesPage;

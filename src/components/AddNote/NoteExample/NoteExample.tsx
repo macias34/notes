@@ -1,21 +1,12 @@
 "use client";
 
-import {
-  FC,
-  FormEvent,
-  KeyboardEvent,
-  useContext,
-  useRef,
-  useState,
-} from "react";
-import Input from "@/components/UI/Input/Input";
+import { FC, FormEvent, KeyboardEvent, useContext, useState } from "react";
 import {
   NewNoteContext,
   NewNoteFunctions,
 } from "@/contexts/newNoteContext/newNoteContext";
 import { useFormikContext } from "formik";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
-import { handleInput } from "@/app/helpers/notes/handlers";
 
 const NoteExample: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(
@@ -27,7 +18,7 @@ const NoteExample: FC = () => {
   const { errors, submitForm } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("example" in errors) && e.target.value.length > 0;
+    const valid = !("example" in errors) && e.currentTarget.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -37,7 +28,7 @@ const NoteExample: FC = () => {
     }
   };
   const handleExampleChange = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
 
     setNewNoteData((prevState) => {
       return {

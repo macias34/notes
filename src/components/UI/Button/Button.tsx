@@ -1,9 +1,11 @@
-import Link from "next/link";
 import { FC } from "react";
 import { HTMLProps } from "react";
 
+type ButtonColor = "red" | "yellow" | "green";
+
 interface Props {
   type: "submit" | "button";
+  color: ButtonColor;
 }
 
 const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
@@ -11,9 +13,29 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
   className,
   onClick,
   type,
+  color,
 }) => {
+  const getButtonColor = (color: ButtonColor) => {
+    switch (color) {
+      case "green":
+        return "btn__green";
+
+      case "red":
+        return "btn__red";
+
+      case "yellow":
+        return "btn__yellow";
+      default:
+        break;
+    }
+  };
+
   return (
-    <button onClick={onClick} type={type} className={`button ${className} `}>
+    <button
+      onClick={onClick}
+      type={type}
+      className={`btn ${getButtonColor(color)} ${className} `}
+    >
       {children}
     </button>
   );

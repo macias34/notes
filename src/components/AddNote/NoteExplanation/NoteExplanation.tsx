@@ -15,7 +15,6 @@ import {
   NewNoteFunctions,
 } from "@/contexts/newNoteContext/newNoteContext";
 import { useFormikContext } from "formik";
-import { handleInput } from "@/app/helpers/notes/handlers";
 
 const NoteExplanation: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(

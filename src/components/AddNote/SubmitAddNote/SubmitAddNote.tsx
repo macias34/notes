@@ -22,7 +22,9 @@ const SubmitAddNote = () => {
         example={example}
         explanation={explanation}
       />
-      <Button type="submit">Add note</Button>
+      <Button color="green" type="submit">
+        Add note
+      </Button>
 
       {errorMessages ? (
         <div className="flex flex-col items-center gap-2">
