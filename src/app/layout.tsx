@@ -1,6 +1,5 @@
 import "server-only";
 
-import Notification from "@/components/UI/Notification/Notification";
 import "../styles/globals.css";
 import SupabaseProvider from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseListener";

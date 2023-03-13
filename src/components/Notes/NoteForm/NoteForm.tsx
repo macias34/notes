@@ -1,9 +1,9 @@
 "use client";
 
 import useMultiStepForm from "@/components/Form/MultiStepForm/useMultiStepForm";
-import FormikWrapper from "@/components/Form/FormikWrapper/FormikWrapper";
-import { formikConfig } from "@/components/Form/FormikWrapper/FormikWrapper";
-import { addNoteSchema } from "@/validations/notes/AddNote";
+import FormikWrapper, {
+  formikConfig,
+} from "@/components/Form/FormikWrapper/FormikWrapper";
 import Steps from "@/components/Form/Steps/Steps";
 import { FC, useState } from "react";
 import {
@@ -15,13 +15,8 @@ import NoteExplanation from "@/components/AddNote/NoteExplanation/NoteExplanatio
 import SubmitAddNote from "@/components/AddNote/SubmitAddNote/SubmitAddNote";
 import NoteTranslation from "@/components/AddNote/NoteTranslation/NoteTranslation";
 import NoteWord from "@/components/AddNote/NoteWord/NoteWord";
-import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
-import { useRouter } from "next/navigation";
 
-const NoteForm: FC<{ initialValues: {} }> = ({ initialValues }) => {
-  const { supabase, session } = useSupabase();
-  const router = useRouter();
-
+const NoteForm: FC<{ formikConfig: formikConfig }> = ({ formikConfig }) => {
   const steps = [
     <NoteWord />,
     <NoteTranslation />,
@@ -36,40 +31,6 @@ const NoteForm: FC<{ initialValues: {} }> = ({ initialValues }) => {
     explanation: "",
     example: "",
   });
-
-  const initialValues: newNote = {
-    word: "",
-    translation: "",
-    explanation: "",
-    example: "",
-  };
-
-  const formikConfig: formikConfig = {
-    initialValues,
-    onSubmit: async (values) => {
-      const { data: noteData, error: noteError } = await supabase
-        .from("notes")
-        .insert(values)
-        .select("id");
-      if (noteError) {
-        console.log(noteError);
-        return;
-      }
-
-      const note_id = noteData[0].id;
-      const { error } = await supabase
-        .from("notes_users")
-        .insert({ note_id, user_id: session?.user.id });
-
-      if (error) {
-        console.log(error);
-        return;
-      }
-      router.push("/profile/notes");
-    },
-
-    validationSchema: addNoteSchema,
-  };
 
   return (
     <NewNoteContext.Provider

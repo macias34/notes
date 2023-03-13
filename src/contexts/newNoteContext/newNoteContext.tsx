@@ -2,10 +2,10 @@ import { createContext, Dispatch, SetStateAction, ReactElement } from "react";
 
 export const NewNoteSteps = ["word", "translation", "explanation", "example"];
 export interface newNote {
-  word: string;
-  translation: string;
-  explanation: string;
-  example: string;
+  word: string | null;
+  translation: string | null;
+  explanation: string | null;
+  example: string | null;
 }
 
 export interface NewNoteFunctions {
