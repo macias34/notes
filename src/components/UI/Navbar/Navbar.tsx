@@ -13,7 +13,7 @@ const Navbar = () => {
 
   return (
     <nav className="flex justify-center gap-5 p-5">
-      {session ? (
+      {true ? (
         <>
           <StyledLink color="primary" href="/" onClick={handleLogout}>
             Log out

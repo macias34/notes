@@ -26,7 +26,7 @@ svg {
 }
 
 .btn {
-  @apply w-fit rounded-md border-2 bg-transparent hover:text-primary px-10 py-3 text-sm font-semibold uppercase dark:hover:text-primary tracking-wide  transition 
+  @apply w-fit rounded-xl border-2 bg-transparent hover:text-primary px-10 py-3 text-sm font-semibold uppercase dark:hover:text-primary tracking-wide  transition 
 }
 
 .btn__green {
