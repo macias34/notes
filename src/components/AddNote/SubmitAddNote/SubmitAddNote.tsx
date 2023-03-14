@@ -6,6 +6,7 @@ import {
 import Button from "@/components/UI/Button/Button";
 import { useFormikContext } from "formik";
 import Note from "@/components/Notes/Note/Note";
+import NotePreview from "@/components/Notes/NotePreview/NotePreview";
 
 const SubmitAddNote = () => {
   const { newNoteData } = useContext(NewNoteContext) as NewNoteFunctions;
@@ -16,7 +17,7 @@ const SubmitAddNote = () => {
   return (
     <>
       <h1 className="text-3xl font-bold">Note preview</h1>
-      <Note
+      <NotePreview
         word={word}
         translation={translation}
         example={example}

@@ -22,11 +22,12 @@ svg {
 }
 
 .button {
-  @apply w-fit rounded-md border-2 bg-transparent border-secondary px-10 py-3 text-sm font-semibold uppercase tracking-wide text-secondary  outline-none transition hover:bg-secondary hover:text-secondary dark:text-primary dark:hover:text-secondary dark:hover:bg-primary hover:text-primary dark:border-primary !important
+  @apply w-fit border-2 bg-transparent border-accent px-10 py-3 text-sm font-semibold uppercase tracking-wide text-accent  outline-none transition hover:bg-accent hover:text-primary rounded-xl !important
+
 }
 
 .btn {
-  @apply w-fit rounded-xl border-2 bg-transparent hover:text-primary px-10 py-3 text-sm font-semibold uppercase dark:hover:text-primary tracking-wide  transition 
+  @apply w-fit rounded-xl border-2 bg-transparent hover:text-primary px-10 py-3 text-base font-semibold uppercase dark:hover:text-primary tracking-wide  transition 
 }
 
 .btn__green {

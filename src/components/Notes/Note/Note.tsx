@@ -6,9 +6,15 @@ import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 
-type Props = Omit<note, "created_at">;
+export type NoteProps = Omit<note, "created_at">;
 
-const Note: FC<Props> = ({ word, translation, explanation, example, id }) => {
+const Note: FC<NoteProps> = ({
+  word,
+  translation,
+  explanation,
+  example,
+  id,
+}) => {
   const { supabase } = useSupabase();
   const handleRemoveNote = async () => {
     const { error: noteUserError } = await supabase
@@ -22,12 +28,12 @@ const Note: FC<Props> = ({ word, translation, explanation, example, id }) => {
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center gap-5 rounded-lg border-2 border-accent px-20 py-10 text-xl">
+      <div className="flex max-w-xl flex-col items-center justify-center gap-5 rounded-lg border-2 border-accent px-10 py-10 text-xl">
         <h1 className="text-3xl font-bold text-accent">
           {word} <span className="dark:text-primary"> - {translation}</span>
         </h1>
         <h2 className="italic">{explanation}</h2>
-        <h2 className="font-bold italic">{example}</h2>
+        <h2 className="text-center font-bold italic">{example}</h2>
       </div>
 
       <div className="flex gap-5">
