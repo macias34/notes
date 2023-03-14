@@ -22,7 +22,7 @@ svg {
 }
 
 .button {
-  @apply w-fit rounded-md border-2 bg-transparent border-accent px-10 py-3 text-sm font-semibold uppercase tracking-wide text-accent outline-none transition hover:bg-accent hover:text-primary focus:bg-accent focus:text-primary dark:text-accent dark:hover:text-primary dark:focus:text-primary dark:focus:border-primary  !important
+  @apply w-fit rounded-md border-2 bg-transparent border-secondary px-10 py-3 text-sm font-semibold uppercase tracking-wide text-secondary  outline-none transition hover:bg-secondary hover:text-secondary dark:text-primary dark:hover:text-secondary dark:hover:bg-primary hover:text-primary dark:border-primary !important
 }
 
 .btn {
@@ -35,6 +35,10 @@ svg {
 
 .btn__red {
   @apply border-red text-red hover:bg-red  
+ }
+
+ .btn__primary {
+  @apply border-secondary text-secondary hover:bg-secondary hover:text-primary dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-secondary 
  }
 
  .btn__yellow {

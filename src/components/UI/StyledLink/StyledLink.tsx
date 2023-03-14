@@ -13,9 +13,11 @@ interface LinkProps {
 const StyledLink: FC<LinkProps> = ({ children, href, onClick, color }) => {
   const getButtonColor = (color: ButtonColor) => {
     switch (color) {
+      case "primary": {
+        return "btn__primary";
+      }
       case "green":
         return "btn__green";
-
       case "red":
         return "btn__red";
 

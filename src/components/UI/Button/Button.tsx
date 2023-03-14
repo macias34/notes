@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { HTMLProps } from "react";
 
-export type ButtonColor = "red" | "yellow" | "green";
+export type ButtonColor = "red" | "yellow" | "green" | "primary";
 
 interface Props {
   type: "submit" | "button";

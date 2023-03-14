@@ -15,22 +15,22 @@ const Navbar = () => {
     <nav className="flex justify-center gap-5 p-5">
       {session ? (
         <>
-          <StyledLink color="green" href="/" onClick={handleLogout}>
+          <StyledLink color="primary" href="/" onClick={handleLogout}>
             Log out
           </StyledLink>
-          <StyledLink color="green" href="/profile">
+          <StyledLink color="primary" href="/profile">
             Profile
           </StyledLink>
-          <StyledLink color="green" href="/profile/notes">
+          <StyledLink color="primary" href="/profile/notes">
             Notes
           </StyledLink>
-          <StyledLink color="green" href="/profile/add-note">
+          <StyledLink color="primary" href="/profile/add-note">
             New note
           </StyledLink>
         </>
       ) : (
         <>
-          <StyledLink color="green" href="/auth">
+          <StyledLink color="primary" href="/auth">
             Login
           </StyledLink>
         </>
