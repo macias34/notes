@@ -6,6 +6,8 @@ import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseLis
 import { ReactNode } from "react";
 import { createServerClient } from "../utils/supabase-server";
 import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
+import { ThemeProvider } from "@/contexts/ThemeContext/ThemeContext";
+import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 
 export default async function RootLayout({
   children,
@@ -19,17 +21,17 @@ export default async function RootLayout({
   } = await supabase.auth.getSession();
 
   return (
-    <html lang="en" className="">
-      <head />
-      <body className="bg-primary text-secondary dark:bg-secondary dark:text-primary">
-        <SupabaseProvider session={session}>
-          <SupabaseListener serverAccessToken={session?.access_token} />
-          <ReduxProvider>
-            {/* <Notification /> */}
+    <ThemeProvider>
+      <html lang="en" className="dark">
+        <head />
+        <body className="bg-primary text-secondary dark:bg-secondary dark:text-primary">
+          <SupabaseProvider session={session}>
+            <SupabaseListener serverAccessToken={session?.access_token} />
+            <ThemeToggle />
             {children}
-          </ReduxProvider>
-        </SupabaseProvider>
-      </body>
-    </html>
+          </SupabaseProvider>
+        </body>
+      </html>
+    </ThemeProvider>
   );
 }
