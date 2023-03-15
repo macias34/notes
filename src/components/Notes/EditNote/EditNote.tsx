@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
 import { note } from "@/types/supabase";
 
-const EditNote = async ({ data }: { data: note }) => {
+const EditNote = ({ data }: { data: note }) => {
   const { supabase, session } = useSupabase();
   const router = useRouter();
 

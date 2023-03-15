@@ -37,7 +37,7 @@ const Steps: FC = () => {
               {pointIndex}
             </div>
             {index < steps.length - 1 ? (
-              <div className="h-[1px] w-24 bg-primary"></div>
+              <div className="h-[1px] w-24 bg-secondary dark:bg-primary"></div>
             ) : (
               ""
             )}

@@ -41,9 +41,12 @@ const EditNotePage = async ({ params }: Props) => {
 
   const { user_id, session_user_id, data } = await getNote(noteWord);
 
-  const formikConfig = {};
-
-  if (user_id === session_user_id && data.word) return <EditNote data={data} />;
+  if (user_id === session_user_id && data.word)
+    return (
+      <>
+        <EditNote data={data} />;
+      </>
+    );
   else redirect("/profile/notes");
 };
 

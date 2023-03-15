@@ -24,13 +24,12 @@ const NoteForm: FC<{ formikConfig: formikConfig }> = ({ formikConfig }) => {
     <NoteExample />,
     <SubmitAddNote />,
   ];
+
+  const { initialValues } = formikConfig;
+  console.log(initialValues);
+
   const { step, next, currentStep, goTo } = useMultiStepForm(steps);
-  const [newNoteData, setNewNoteData] = useState<newNote>({
-    word: "",
-    translation: "",
-    explanation: "",
-    example: "",
-  });
+  const [newNoteData, setNewNoteData] = useState<newNote>(initialValues);
 
   return (
     <NewNoteContext.Provider
