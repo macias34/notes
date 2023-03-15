@@ -18,7 +18,7 @@ export async function middleware(req: NextRequest) {
   if (session && req.nextUrl.pathname.startsWith("/auth")) {
     // Redirect to home if logged in
     const redirectUrl = req.nextUrl.clone();
-    redirectUrl.pathname = "/";
+    redirectUrl.pathname = "/profile";
     return NextResponse.redirect(redirectUrl);
   } else if (!session && req.nextUrl.pathname.startsWith("/profile")) {
     const redirectUrl = req.nextUrl.clone();

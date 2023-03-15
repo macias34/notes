@@ -12,9 +12,7 @@ const NoteList: FC<Props> = ({ notes }) => {
       {notes.map(({ note }) => {
         const { word, created_at, id } = note;
 
-        return (
-          <SingleNote key={id} word={word} created_at={created_at} id={id} />
-        );
+        return <SingleNote key={id} word={word} created_at={created_at} />;
       })}
     </div>
   );

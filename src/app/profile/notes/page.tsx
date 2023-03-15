@@ -3,7 +3,7 @@ import { createServerClient } from "@/utils/supabase-server";
 import { groupByNote, note } from "@/types/supabase";
 import dayjs from "dayjs";
 import NoteList from "@/components/Notes/NoteList/NoteList";
-import { groupBy } from "@/helpers/notes/notesHelpers";
+import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 
 const NotesPage = async () => {
   const supabase = createServerClient();
@@ -21,7 +21,7 @@ const NotesPage = async () => {
     return formattedDate;
   });
 
-  const dateLabels = Object.keys(filteredNotes);
+  const dateLabels = sortDateLabels(filteredNotes);
 
   if (notes?.length === 0)
     return (

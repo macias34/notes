@@ -33,10 +33,10 @@ export interface addNote {
   word: string | null;
 }
 
-export interface SingleNote {
-  id: number;
+export interface SingleNoteProps {
   word: string | null;
   created_at: string | null;
+  home?: boolean;
 }
 
 export interface Database {

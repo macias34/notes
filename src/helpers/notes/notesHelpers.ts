@@ -6,3 +6,14 @@ export function groupBy<T>(arr: T[], fn: (item: T) => any) {
     return { ...prev, [groupKey]: group };
   }, {});
 }
+
+export function sortDateLabels(dateObj: {}) {
+  const sortedLabels = Object.keys(dateObj).sort((a, b) => {
+    const aDay: number = parseInt(a[0] + a[1]);
+    const bDay: number = parseInt(b[0] + b[1]);
+
+    return aDay - bDay;
+  });
+
+  return sortedLabels;
+}
