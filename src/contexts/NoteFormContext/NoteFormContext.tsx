@@ -15,6 +15,7 @@ export interface NewNoteFunctions {
   currentStep: number;
   goTo: (index: number) => void;
   setNewNoteData: Dispatch<SetStateAction<newNote>>;
+  mode: "add" | "edit";
 }
 
 export type dispatch = Dispatch<SetStateAction<newNote>>;

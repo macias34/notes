@@ -9,27 +9,33 @@ import { FC, useState } from "react";
 import {
   NewNoteContext,
   newNote,
-} from "@/contexts/newNoteContext/newNoteContext";
-import NoteExample from "@/components/AddNote/NoteExample/NoteExample";
-import NoteExplanation from "@/components/AddNote/NoteExplanation/NoteExplanation";
-import SubmitAddNote from "@/components/AddNote/SubmitAddNote/SubmitAddNote";
-import NoteTranslation from "@/components/AddNote/NoteTranslation/NoteTranslation";
-import NoteWord from "@/components/AddNote/NoteWord/NoteWord";
+} from "@/contexts/NoteFormContext/NoteFormContext";
+import NoteExample from "@/components/NoteForm/NoteExample/NoteExample";
+import NoteExplanation from "@/components/NoteForm/NoteExplanation/NoteExplanation";
+import SubmitNoteForm from "@/components/NoteForm/SubmitNoteForm/SubmitNoteForm";
+import NoteTranslation from "@/components/NoteForm/NoteTranslation/NoteTranslation";
+import NoteWord from "@/components/NoteForm/NoteWord/NoteWord";
 
-const NoteForm: FC<{ formikConfig: formikConfig }> = ({ formikConfig }) => {
+interface Props {
+  formikConfig: formikConfig;
+  mode: "add" | "edit";
+}
+
+const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
   const steps = [
     <NoteWord />,
     <NoteTranslation />,
     <NoteExplanation />,
     <NoteExample />,
-    <SubmitAddNote />,
+    <SubmitNoteForm />,
   ];
 
-  const { initialValues } = formikConfig;
-  console.log(initialValues);
+  const initialValues = formikConfig.initialValues as newNote;
 
   const { step, next, currentStep, goTo } = useMultiStepForm(steps);
-  const [newNoteData, setNewNoteData] = useState<newNote>(initialValues);
+  const [newNoteData, setNewNoteData] = useState<newNote>(
+    initialValues as newNote
+  );
 
   return (
     <NewNoteContext.Provider
@@ -40,13 +46,18 @@ const NoteForm: FC<{ formikConfig: formikConfig }> = ({ formikConfig }) => {
         currentStep,
         goTo,
         steps,
+        mode,
       }}
     >
       <div className="flex h-full w-full flex-col items-center justify-evenly gap-5">
         <FormikWrapper
           formikConfig={formikConfig}
-          className="flex h-full w-full flex-col items-center justify-center gap-10"
+          className="flex h-4/5 w-full flex-col items-center justify-between"
         >
+          <h1 className="text-[2rem]">
+            <span className="capitalize">{mode}</span>{" "}
+            <span className="font-bold">{newNoteData.word}</span> note
+          </h1>
           {step}
           <Steps />
         </FormikWrapper>

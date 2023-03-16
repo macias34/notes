@@ -4,11 +4,11 @@ import { FC, FormEvent, KeyboardEvent, useContext } from "react";
 import {
   NewNoteContext,
   NewNoteFunctions,
-} from "@/contexts/newNoteContext/newNoteContext";
+} from "@/contexts/NoteFormContext/NoteFormContext";
 import { useFormikContext } from "formik";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 
-const NoteTranslation: FC = () => {
+const NoteWord: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(
     NewNoteContext
   ) as NewNoteFunctions;
@@ -16,7 +16,7 @@ const NoteTranslation: FC = () => {
   const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("translation" in errors) && e.target.value.length > 0;
+    const valid = !("word" in errors) && e.target.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -25,26 +25,26 @@ const NoteTranslation: FC = () => {
       }
     }
   };
-  const handleTranslationChange = (e: FormEvent<HTMLInputElement>) => {
+  const handleTitleChange = (e: FormEvent<HTMLInputElement>) => {
     const value = e.target.value;
 
     setNewNoteData((prevState) => {
       return {
         ...prevState,
-        translation: value,
+        word: value,
       };
     });
   };
 
   return (
     <NoteInput
-      label="translation"
+      label="word"
       onKeyDown={handleEnterSubmit}
-      onInput={(e) => handleTranslationChange(e)}
-      placeholder="bogactwo"
-      name="translation"
+      onInput={(e) => handleTitleChange(e)}
+      placeholder="ChitaBot"
+      name="word"
     />
   );
 };
 
-export default NoteTranslation;
+export default NoteWord;

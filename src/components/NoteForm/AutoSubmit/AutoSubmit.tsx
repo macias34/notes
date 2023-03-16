@@ -1,4 +1,4 @@
-import { newNote } from "@/contexts/newNoteContext/newNoteContext";
+import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
 import { FC, useEffect } from "react";
 
 const AutoSubmit: FC<{ dataToSubmit: {}; submitForm: () => void }> = ({

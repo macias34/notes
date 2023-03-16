@@ -1,8 +1,8 @@
 "use client";
 
 import { formikConfig } from "@/components/Form/FormikWrapper/FormikWrapper";
-import { addNoteSchema } from "@/validations/notes/AddNote";
-import { newNote } from "@/contexts/newNoteContext/newNoteContext";
+import { noteFormSchema } from "@/validations/notes/NoteForm";
+import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
@@ -62,10 +62,10 @@ const NewNotePage = () => {
   const formikConfig: formikConfig = {
     initialValues,
     onSubmit,
-    validationSchema: addNoteSchema,
+    validationSchema: noteFormSchema,
   };
 
-  return <NoteForm formikConfig={formikConfig} />;
+  return <NoteForm mode="add" formikConfig={formikConfig} />;
 };
 
 export default NewNotePage;

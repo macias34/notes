@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { addNote, note } from "@/types/supabase";
+import { noteForm, note } from "@/types/supabase";
 import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";

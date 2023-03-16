@@ -4,7 +4,7 @@ import { FC, FormEvent, KeyboardEvent, useContext, useState } from "react";
 import {
   NewNoteContext,
   NewNoteFunctions,
-} from "@/contexts/newNoteContext/newNoteContext";
+} from "@/contexts/NoteFormContext/NoteFormContext";
 import { useFormikContext } from "formik";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 

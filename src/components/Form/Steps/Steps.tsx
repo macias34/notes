@@ -3,7 +3,7 @@ import {
   NewNoteContext,
   NewNoteFunctions,
   NewNoteSteps,
-} from "@/contexts/newNoteContext/newNoteContext";
+} from "@/contexts/NoteFormContext/NoteFormContext";
 
 import { useFormikContext } from "formik";
 
@@ -19,17 +19,17 @@ const Steps: FC = () => {
   };
 
   return (
-    <div className="absolute bottom-[15%] flex items-center">
+    <div className="flex items-center">
       {steps.map((step, index) => {
         const pointIndex = index + 1;
         return (
           <Fragment key={index}>
             <div
               onClick={() => switchStep(index)}
-              className={`prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition dark:border-primary dark:hover:bg-primary dark:hover:text-secondary
+              className={`prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition hover:border-secondary hover:bg-secondary hover:text-primary dark:border-primary dark:hover:bg-primary dark:hover:text-secondary
               ${
                 index === currentStep
-                  ? "dark:border-primary dark:bg-primary dark:text-secondary"
+                  ? "border-secondary bg-secondary text-primary dark:border-primary dark:bg-primary dark:text-secondary"
                   : ""
               }
               `}

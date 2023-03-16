@@ -13,7 +13,7 @@ import {
   dispatch,
   NewNoteContext,
   NewNoteFunctions,
-} from "@/contexts/newNoteContext/newNoteContext";
+} from "@/contexts/NoteFormContext/NoteFormContext";
 import { useFormikContext } from "formik";
 
 const NoteExplanation: FC = () => {

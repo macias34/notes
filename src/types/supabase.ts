@@ -26,7 +26,7 @@ export interface groupByNote {
   };
 }
 
-export interface addNote {
+export interface noteForm {
   example: string | null;
   explanation: string | null;
   translation: string | null;

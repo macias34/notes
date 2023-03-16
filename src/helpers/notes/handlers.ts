@@ -1,7 +1,7 @@
 import {
   dispatch,
   NewNoteFunctions,
-} from "@/contexts/newNoteContext/newNoteContext";
+} from "@/contexts/NoteFormContext/NoteFormContext";
 import { KeyboardEvent } from "react";
 
 export const handleInput = (
