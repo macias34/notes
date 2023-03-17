@@ -17,11 +17,10 @@ const Input: FC<InputProps> = ({
 }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const { getInputStyles } = useInput();
-  const { errors, touched } = useFormikContext();
+  const { errors, touched } = useFormikContext<any>();
 
   useEffect(() => {
-    if (name in errors && (touched as any)[name as keyof typeof touched])
-      setIsError(true);
+    if (name in errors && touched[name]) setIsError(true);
     else setIsError(false);
   }, [errors, touched]);
 
