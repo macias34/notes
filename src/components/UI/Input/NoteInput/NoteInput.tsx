@@ -11,14 +11,13 @@ const NoteInput: FC<InputProps> = ({
   label,
   placeholder,
   name,
-  type,
   onKeyDown,
   className,
   onInput,
 }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const { getInputStyles } = useInput();
-  const { errors, touched } = useFormikContext();
+  const { errors, touched } = useFormikContext<any>();
 
   useEffect(() => {
     if (name in errors && touched[name]) setIsError(true);

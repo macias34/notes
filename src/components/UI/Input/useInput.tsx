@@ -12,6 +12,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type?: InputType;
   placeholder: string;
   ref?: Ref<HTMLInputElement>;
+  values?: any[];
 }
 
 export interface RenderInput extends Partial<InputProps> {
