@@ -38,7 +38,7 @@ export interface noteForm {
 export interface SingleNoteProps {
   word: string | null;
   created_at: string | null;
-  id: number;
+  id?: number;
   home?: boolean;
 }
 
