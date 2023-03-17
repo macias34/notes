@@ -4,7 +4,7 @@ import { FC, memo } from "react";
 import useInput from "./useInput";
 import { InputProps } from "./useInput";
 import ValidationError from "../../Form/ValidationError/ValidationError";
-import { useFormikContext, Field } from "formik";
+import { useFormikContext, Field, FormikTouched } from "formik";
 import { useState, useEffect } from "react";
 
 const Input: FC<InputProps> = ({
@@ -20,7 +20,11 @@ const Input: FC<InputProps> = ({
   const { errors, touched } = useFormikContext();
 
   useEffect(() => {
-    if (name in errors && (touched as any)[name]) setIsError(true);
+    if (
+      name in errors &&
+      (touched as FormikTouched<{ [field: string]: any }>)[name]
+    )
+      setIsError(true);
     else setIsError(false);
   }, [errors, touched]);
 
