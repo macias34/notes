@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import NoteList from "@/components/Notes/NoteList/NoteList";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 
-const NotesPage = async () => {
+const getNotes = async () => {
   const supabase = createServerClient();
   const user = await supabase.auth.getUser();
 
@@ -15,6 +15,15 @@ const NotesPage = async () => {
     .from("notes_users")
     .select(`note:notes(*)`)
     .eq("user_id", user_id);
+
+  return {
+    notes,
+    error,
+  };
+};
+
+const NotesPage = async () => {
+  const { notes, error } = await getNotes();
 
   const filteredNotes = groupBy(notes as groupByNote[], ({ note }) => {
     const formattedDate = dayjs(note.created_at).format("DD.MM.YYYY");

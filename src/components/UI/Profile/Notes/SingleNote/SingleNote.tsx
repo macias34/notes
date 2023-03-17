@@ -2,7 +2,7 @@ import { FC } from "react";
 import { SingleNoteProps } from "@/types/supabase";
 import Link from "next/link";
 
-const SingleNote: FC<SingleNoteProps> = ({ word, home }) => {
+const SingleNote: FC<SingleNoteProps> = ({ word, home, id }) => {
   if (home)
     return (
       <div className="flex min-w-[8rem] cursor-pointer items-center justify-center gap-5 rounded-xl bg-secondary px-5 py-3 text-center text-lg font-semibold capitalize text-primary dark:bg-primary dark:text-secondary">
@@ -11,7 +11,7 @@ const SingleNote: FC<SingleNoteProps> = ({ word, home }) => {
     );
 
   return (
-    <Link href={`/profile/notes/${word}`}>
+    <Link href={`/profile/notes/${id}`}>
       <div className="flex min-w-[8rem] items-center justify-center gap-5 rounded-xl bg-secondary px-5 py-3 text-center text-lg font-semibold capitalize text-primary dark:bg-primary dark:text-secondary">
         {word}
       </div>

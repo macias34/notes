@@ -2,7 +2,7 @@ import { createContext, Dispatch, SetStateAction, ReactElement } from "react";
 
 export const NewNoteSteps = ["word", "translation", "explanation", "example"];
 export interface newNote {
-  word: string | null;
+  word: string;
   translation: string | null;
   explanation: string | null;
   example: string | null;

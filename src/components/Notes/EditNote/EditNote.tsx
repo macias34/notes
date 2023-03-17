@@ -23,23 +23,23 @@ const EditNote = ({ data }: { data: note }) => {
 
   const formikConfig: formikConfig = {
     initialValues,
-    onSubmit: async (values) => {
-      console.log(values);
+    onSubmit: async (values: newNote) => {
       const { data: noteData, error: noteError } = await supabase
         .from("notes")
         .update(values)
         .eq("id", id);
+
       if (noteError) {
         console.log(noteError);
-        return;
+        return <p className="text-3xl font-bold">{noteError.message}</p>;
       }
 
-      router.push("/profile/notes");
+      router.replace("/profile/notes");
+      router.refresh();
     },
 
     validationSchema: noteFormSchema,
   };
-
   return <NoteForm mode="edit" formikConfig={formikConfig} />;
 };
 

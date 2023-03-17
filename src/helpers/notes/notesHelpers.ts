@@ -17,3 +17,12 @@ export function sortDateLabels(dateObj: {}) {
 
   return sortedLabels;
 }
+
+export const sanitizeUrl = (title: string) => {
+  return title
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .toLowerCase()
+    .replace(/[&\/\\#,+()$~%.'":*?!<>{}]/g, "");
+};

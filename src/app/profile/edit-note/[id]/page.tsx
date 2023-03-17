@@ -6,28 +6,24 @@ import EditNote from "@/components/Notes/EditNote/EditNote";
 
 interface Props {
   params: {
-    note: string;
+    id: string;
   };
 }
 
-const getNote = async (noteWord: string) => {
+const getNote = async (id: string) => {
   const supabase = createServerClient();
   const user = await supabase.auth.getUser();
 
   const { id: session_user_id } = user.data.user || {};
 
-  const { data, error } = await supabase
-    .from("notes")
-    .select()
-    .eq("word", noteWord);
+  const { data, error } = await supabase.from("notes").select().eq("id", id);
 
   if (data?.length === 0) redirect("/profile/notes");
 
-  const { id: note_id } = (data as note[])[0];
   const { data: user_id } = await supabase
     .from("notes_users")
     .select("user_id")
-    .eq("note_id", note_id);
+    .eq("note_id", id);
 
   return {
     user_id: (user_id as any[])[0].user_id,
@@ -37,16 +33,11 @@ const getNote = async (noteWord: string) => {
 };
 
 const EditNotePage = async ({ params }: Props) => {
-  const { note: noteWord } = params;
+  const { id } = params;
 
-  const { user_id, session_user_id, data } = await getNote(noteWord);
+  const { user_id, session_user_id, data } = await getNote(id);
 
-  if (user_id === session_user_id && data.word)
-    return (
-      <>
-        <EditNote data={data} />;
-      </>
-    );
+  if (user_id === session_user_id && data.word) return <EditNote data={data} />;
   else redirect("/profile/notes");
 };
 

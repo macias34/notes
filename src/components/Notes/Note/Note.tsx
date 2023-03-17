@@ -5,8 +5,16 @@ import { noteForm, note } from "@/types/supabase";
 import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
+import { useRouter } from "next/navigation";
 
-export type NoteProps = Omit<note, "created_at">;
+export interface NoteProps {
+  example: string | null;
+  explanation: string | null;
+  id: string;
+  translation: string | null;
+  word: string;
+  url?: string;
+}
 
 const Note: FC<NoteProps> = ({
   word,
@@ -14,8 +22,11 @@ const Note: FC<NoteProps> = ({
   explanation,
   example,
   id,
+  url,
 }) => {
   const { supabase } = useSupabase();
+  const router = useRouter();
+
   const handleRemoveNote = async () => {
     const { error: noteUserError } = await supabase
       .from("notes_users")
@@ -23,7 +34,12 @@ const Note: FC<NoteProps> = ({
       .eq("note_id", id);
     const { error } = await supabase.from("notes").delete().eq("id", id);
 
-    if (error || noteUserError) console.log(error || noteUserError);
+    if (error || noteUserError) {
+      console.log(error || noteUserError);
+      return;
+    }
+
+    router.replace("/profile/notes");
   };
 
   return (
@@ -37,7 +53,7 @@ const Note: FC<NoteProps> = ({
       </div>
 
       <div className="flex gap-5">
-        <StyledLink color="yellow" href={`/profile/edit-note/${word}`}>
+        <StyledLink color="yellow" href={`/profile/edit-note/${id}`}>
           Edit
         </StyledLink>
         <Button onClick={handleRemoveNote} color="red" type="button">

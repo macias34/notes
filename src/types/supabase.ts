@@ -12,7 +12,8 @@ export interface note {
   explanation: string | null;
   id: number;
   translation: string | null;
-  word: string | null;
+  word: string;
+  url?: string;
 }
 
 export interface groupByNote {
@@ -23,6 +24,7 @@ export interface groupByNote {
     id: number;
     translation: string | null;
     word: string | null;
+    url: string;
   };
 }
 
@@ -36,6 +38,7 @@ export interface noteForm {
 export interface SingleNoteProps {
   word: string | null;
   created_at: string | null;
+  id: number;
   home?: boolean;
 }
 

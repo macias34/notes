@@ -7,6 +7,7 @@ import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProv
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
 import { note } from "@/types/supabase";
+import { sanitizeUrl } from "@/helpers/notes/notesHelpers";
 const NewNotePage = () => {
   const { supabase, session } = useSupabase();
   const user_id = session?.user.id;
@@ -29,7 +30,6 @@ const NewNotePage = () => {
 
     const isDuplicated = notes?.some(({ note }) => {
       const { word: wordToSearch } = note as note;
-
       if (wordToSearch === word) {
         return true;
       } else return false;
@@ -53,10 +53,15 @@ const NewNotePage = () => {
 
     if (noteError || noteUserError) {
       console.log(noteError || noteUserError);
-      return;
+      return (
+        <p className="text-3xl font-bold">
+          {noteError?.message || noteUserError?.message}
+        </p>
+      );
     }
 
     router.replace("/profile/notes");
+    router.refresh();
   };
 
   const formikConfig: formikConfig = {
