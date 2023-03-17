@@ -13,6 +13,7 @@ module.exports = {
     "!./node_modules",
   ],
   theme: {
+      
     colors: {
       primary: "#FFFFFF",
       secondary: "#133194",
@@ -31,7 +32,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 };
 
 // ##fafafa - primary

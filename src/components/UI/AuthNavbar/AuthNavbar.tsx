@@ -1,12 +1,13 @@
 "use client";
-import StyledLink from "../StyledLink/StyledLink";
+import Link from "next/link";
+import { FaHome } from "react-icons/fa";
 
 const AuthNavbar = () => {
   return (
     <nav className="flex justify-center gap-5 p-5">
-      <StyledLink color="primary" href="/">
-        home
-      </StyledLink>
+      <Link title="Home page" className="text-3xl hover:text-yellow" href="/">
+        <FaHome />
+      </Link>
     </nav>
   );
 };

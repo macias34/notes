@@ -48,7 +48,7 @@ const NotesPage = async () => {
           return (
             <div className="flex w-[10%] flex-col items-center gap-5">
               <span className="text-xl text-gray">{date}</span>
-              <NoteList notes={notesByDate} />
+              <NoteList key={date} notes={notesByDate} />
             </div>
           );
         })}

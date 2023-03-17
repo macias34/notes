@@ -6,7 +6,6 @@ import dayjs from "dayjs";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import SingleNote from "@/components/UI/Profile/Notes/SingleNote/SingleNote";
 import { dummySingleNotes, dummyNotes } from "@/constants/home";
-import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Link from "next/link";
 
 export default function Home() {
@@ -46,6 +45,7 @@ export default function Home() {
                     {notesByDate.map(({ word, created_at }, id) => {
                       return (
                         <SingleNote
+                          id={id}
                           home={true}
                           key={id}
                           word={word}

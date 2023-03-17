@@ -1,10 +1,15 @@
 "use client";
-import StyledLink from "../StyledLink/StyledLink";
 import { useSupabase } from "../../Supabase/SupabaseProvider/SupabaseProvider";
-
+import { FaStickyNote, FaUserCircle } from "react-icons/fa";
+import { BsFillPlusCircleFill } from "react-icons/bs";
+import { HiLogin } from "react-icons/hi";
+import { FaHome } from "react-icons/fa";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 const Navbar = () => {
   const { supabase, session } = useSupabase();
-
+  const pathname = usePathname();
+  console.log(pathname);
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
 
@@ -12,27 +17,57 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="flex justify-center gap-5 p-5">
+    <nav className="flex items-center justify-center gap-14 p-5">
       {session ? (
         <>
-          <StyledLink color="primary" href="/" onClick={handleLogout}>
-            Log out
-          </StyledLink>
-          <StyledLink color="primary" href="/profile">
-            Profile
-          </StyledLink>
-          <StyledLink color="primary" href="/profile/notes">
-            Notes
-          </StyledLink>
-          <StyledLink color="primary" href="/profile/add-note">
-            New note
-          </StyledLink>
+          <Link
+            title="Home page"
+            className="text-3xl hover:text-yellow"
+            href="/"
+          >
+            <FaHome />
+          </Link>
+
+          <Link
+            title="Profile"
+            className={`text-3xl hover:text-yellow ${
+              pathname === "/profile" ? "text-yellow" : ""
+            }`}
+            href="/profile"
+          >
+            <FaUserCircle />
+          </Link>
+          <Link
+            title="Notes"
+            className={`text-3xl hover:text-yellow ${
+              pathname === "/profile/notes" ? "text-yellow" : ""
+            }`}
+            href="/profile/notes"
+          >
+            <FaStickyNote />
+          </Link>
+          <Link
+            title="Add note"
+            className={`text-3xl hover:text-yellow ${
+              pathname === "/profile/add-note" ? "text-yellow" : ""
+            }`}
+            href="/profile/add-note"
+          >
+            <BsFillPlusCircleFill />
+          </Link>
+          <i
+            title="Sign out"
+            className={`cursor-pointer text-3xl hover:text-yellow`}
+            onClick={handleLogout}
+          >
+            <HiLogin />
+          </i>
         </>
       ) : (
         <>
-          <StyledLink color="primary" href="/auth">
+          <Link className="text-3xl" href="/auth">
             Login
-          </StyledLink>
+          </Link>
         </>
       )}
     </nav>

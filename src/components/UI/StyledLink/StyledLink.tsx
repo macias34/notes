@@ -29,11 +29,7 @@ const StyledLink: FC<LinkProps> = ({ children, href, onClick, color }) => {
   };
 
   return (
-    <Link
-      onClick={onClick}
-      href={href}
-      className={`btn ${getButtonColor(color)}`}
-    >
+    <Link onClick={onClick} href={href} className="text-xl font-semibold">
       {children}
     </Link>
   );
