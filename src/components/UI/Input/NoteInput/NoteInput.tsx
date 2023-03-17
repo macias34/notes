@@ -1,11 +1,20 @@
 "use client";
 
-import { FC, memo } from "react";
-import useInput from "../useInput";
-import { InputProps } from "../useInput";
+import { FC, memo, Ref } from "react";
+import useInput, { InputType } from "../useInput";
 import ValidationError from "@/components/Form/ValidationError/ValidationError";
 import { useFormikContext, Field } from "formik";
 import { useState, useEffect } from "react";
+import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
+import { InputHTMLAttributes } from "react";
+
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+  name: "word" | "translation" | "explanation" | "example";
+  type?: InputType;
+  placeholder: string;
+  ref?: Ref<HTMLInputElement>;
+}
 
 const NoteInput: FC<InputProps> = ({
   label,

@@ -4,7 +4,7 @@ import { InputStyles } from "@/styles/reusableStyles";
 import TextInput from "./TextInput/TextInput";
 import PasswordInput from "./PasswordInput/PasswordInput";
 
-type InputType = "password" | "date" | "number" | undefined;
+export type InputType = "password" | "date" | "number" | undefined;
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
