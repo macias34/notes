@@ -20,7 +20,7 @@ const Input: FC<InputProps> = ({
   const { errors, touched } = useFormikContext<any>();
 
   useEffect(() => {
-    if (name in errors && touched[name]) setIsError(true);
+    if (name in errors && touched.name) setIsError(true);
     else setIsError(false);
   }, [errors, touched]);
 
