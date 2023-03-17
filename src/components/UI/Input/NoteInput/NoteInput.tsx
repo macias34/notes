@@ -41,7 +41,7 @@ const NoteInput: FC<InputProps> = ({
         <Field
           placeholder={placeholder}
           name={name}
-          type={type}
+          type="text"
           onInput={onInput}
           onKeyDown={onKeyDown}
           spellCheck="false"

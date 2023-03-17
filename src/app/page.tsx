@@ -36,10 +36,10 @@ export default function Home() {
           </p>
 
           <div className="flex gap-10">
-            {dateLabels.map((date) => {
+            {dateLabels.map((date, index) => {
               const notesByDate = filteredNotes[date];
               return (
-                <div className="flex flex-col items-center gap-5">
+                <div key={index} className="flex flex-col items-center gap-5">
                   <span className="text-xl text-gray">{date}</span>
                   <div className="flex flex-col items-center gap-5">
                     {notesByDate.map(({ word, created_at }, id) => {

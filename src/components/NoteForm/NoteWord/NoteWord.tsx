@@ -16,7 +16,7 @@ const NoteWord: FC = () => {
   const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("word" in errors) && e.target.value.length > 0;
+    const valid = !("word" in errors) && e.currentTarget.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -26,7 +26,7 @@ const NoteWord: FC = () => {
     }
   };
   const handleTitleChange = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
 
     setNewNoteData((prevState) => {
       return {

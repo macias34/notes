@@ -16,7 +16,8 @@ const NoteTranslation: FC = () => {
   const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("translation" in errors) && e.target.value.length > 0;
+    const valid =
+      !("translation" in errors) && e.currentTarget.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -26,7 +27,7 @@ const NoteTranslation: FC = () => {
     }
   };
   const handleTranslationChange = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
 
     setNewNoteData((prevState) => {
       return {

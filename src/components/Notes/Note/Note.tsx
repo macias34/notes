@@ -6,6 +6,7 @@ import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export interface NoteProps {
   example: string | null;
@@ -53,9 +54,9 @@ const Note: FC<NoteProps> = ({
       </div>
 
       <div className="flex gap-5">
-        <StyledLink color="yellow" href={`/profile/edit-note/${id}`}>
+        <Link className="btn btn__yellow" href={`/profile/edit-note/${id}`}>
           Edit
-        </StyledLink>
+        </Link>
         <Button onClick={handleRemoveNote} color="red" type="button">
           Remove
         </Button>

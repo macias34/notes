@@ -3,6 +3,7 @@
 import {
   FC,
   FormEvent,
+  FormEventHandler,
   KeyboardEvent,
   useContext,
   useRef,
@@ -26,7 +27,8 @@ const NoteExplanation: FC = () => {
   const { errors } = useFormikContext();
 
   const handleEnterSubmit = (e: KeyboardEvent<HTMLInputElement>) => {
-    const valid = !("explanation" in errors) && e.target.value.length > 0;
+    const valid =
+      !("explanation" in errors) && e.currentTarget.value.length > 0;
 
     if (e.key === "Enter") {
       e.preventDefault();
@@ -36,7 +38,7 @@ const NoteExplanation: FC = () => {
     }
   };
   const handleExplanationChange = (e: FormEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const value = e.currentTarget.value;
 
     setNewNoteData((prevState) => {
       return {

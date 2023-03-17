@@ -46,9 +46,12 @@ const NotesPage = async () => {
         {dateLabels.map((date) => {
           const notesByDate = filteredNotes[date];
           return (
-            <div className="flex w-[10%] flex-col items-center gap-5">
+            <div
+              key={date}
+              className="flex w-[10%] flex-col items-center gap-5"
+            >
               <span className="text-xl text-gray">{date}</span>
-              <NoteList key={date} notes={notesByDate} />
+              <NoteList notes={notesByDate} />
             </div>
           );
         })}
