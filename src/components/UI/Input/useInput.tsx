@@ -1,8 +1,5 @@
 import { InputHTMLAttributes, Ref, useState } from "react";
-import { Field } from "formik";
 import { InputStyles } from "@/styles/reusableStyles";
-import TextInput from "./TextInput/TextInput";
-import PasswordInput from "./PasswordInput/PasswordInput";
 
 export type InputType = "password" | "date" | "number" | undefined;
 
@@ -34,40 +31,7 @@ const useInput = () => {
     }
   };
 
-  const renderInput = ({
-    type,
-    placeholder,
-    name,
-    isError,
-    onKeyDown,
-  }: RenderInput) => {
-    switch (type) {
-      case "password": {
-        return (
-          <PasswordInput
-            placeholder={placeholder}
-            name={name}
-            type={type}
-            isError={isError}
-          />
-        );
-      }
-
-      default:
-        return (
-          <TextInput
-            placeholder={placeholder}
-            name={name}
-            type={type}
-            isError={isError}
-            onKeyDown={onKeyDown}
-          />
-        );
-    }
-  };
-
   return {
-    renderInput,
     getInputStyles,
   };
 };
