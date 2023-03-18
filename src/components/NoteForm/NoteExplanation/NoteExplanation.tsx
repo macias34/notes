@@ -55,7 +55,7 @@ const NoteExplanation: FC = () => {
       onInput={(e) => handleExplanationChange(e)}
       placeholder="Synonym to wealth"
       name="explanation"
-      className="w-[26rem]"
+      className="w-[30rem]"
     />
   );
 };

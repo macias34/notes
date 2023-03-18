@@ -58,7 +58,7 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
         >
           <h1 className="text-[2rem]">
             <span className="capitalize">{mode}</span>{" "}
-            <span className="font-bold capitalize">{newNoteData.word}</span>{" "}
+            <span className="font-bold text-accent">{newNoteData.word}</span>{" "}
             note
           </h1>
           {step}

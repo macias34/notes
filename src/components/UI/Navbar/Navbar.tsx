@@ -21,7 +21,7 @@ const Navbar = () => {
         <>
           <Link
             title="Home page"
-            className="text-3xl hover:text-yellow"
+            className="text-3xl hover:text-yellow focus:text-yellow"
             href="/"
           >
             <FaHome />
@@ -29,7 +29,7 @@ const Navbar = () => {
 
           <Link
             title="Profile"
-            className={`text-3xl hover:text-yellow ${
+            className={`text-3xl hover:text-yellow focus:text-yellow ${
               pathname === "/profile" ? "text-yellow" : ""
             }`}
             href="/profile"
@@ -38,7 +38,7 @@ const Navbar = () => {
           </Link>
           <Link
             title="Notes"
-            className={`text-3xl hover:text-yellow ${
+            className={`text-3xl hover:text-yellow focus:text-yellow ${
               pathname === "/profile/notes" ? "text-yellow" : ""
             }`}
             href="/profile/notes"
@@ -47,7 +47,7 @@ const Navbar = () => {
           </Link>
           <Link
             title="Add note"
-            className={`text-3xl hover:text-yellow ${
+            className={`text-3xl hover:text-yellow focus:text-yellow ${
               pathname === "/profile/add-note" ? "text-yellow" : ""
             }`}
             href="/profile/add-note"
@@ -56,7 +56,7 @@ const Navbar = () => {
           </Link>
           <i
             title="Sign out"
-            className={`cursor-pointer text-3xl hover:text-yellow`}
+            className={`cursor-pointer text-3xl hover:text-yellow focus:text-yellow`}
             onClick={handleLogout}
           >
             <HiLogin />
@@ -65,7 +65,7 @@ const Navbar = () => {
       ) : (
         <>
           <Link
-            className="cursor-pointer text-3xl hover:text-yellow"
+            className="cursor-pointer text-3xl hover:text-yellow focus:text-yellow"
             href="/auth"
           >
             Login
