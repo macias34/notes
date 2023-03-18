@@ -5,7 +5,6 @@ import SupabaseProvider from "@/components/Supabase/SupabaseProvider/SupabasePro
 import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseListener";
 import { ReactNode } from "react";
 import { createServerClient } from "../utils/supabase-server";
-import ReduxProvider from "@/components/ReduxProvider/ReduxProvider";
 import { ThemeProvider } from "@/contexts/ThemeContext/ThemeContext";
 import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
 

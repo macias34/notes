@@ -12,13 +12,14 @@ const NotePreview: FC<NotePreviewProps> = ({
   example,
 }) => {
   return (
-    <div className="flex max-w-xl flex-col items-center justify-center gap-5 rounded-lg border-2 border-accent px-10 py-10 text-xl">
-      <h1 className="text-center text-3xl font-bold text-accent">
-        {word}{" "}
-        <span className="text-center dark:text-primary"> - {translation}</span>
-      </h1>
-      <h2 className="italic">{explanation}</h2>
-      <h2 className="text-center font-bold italic">{example}</h2>
+    <div className="flex max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl">
+      <h1 className="text-3xl font-bold text-accent">{word}</h1>
+      <span>means</span>
+      <h2 className="text-2xl font-bold dark:text-primary">{translation}</h2>
+      <div className="flex flex-col items-center gap-2">
+        <span className="italic">{explanation}</span>
+        <span className="text-center font-bold italic">{example}</span>
+      </div>
     </div>
   );
 };

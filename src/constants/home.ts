@@ -4,13 +4,6 @@ import { NotePreviewProps } from "@/components/Notes/NotePreview/NotePreview";
 
 export const dummyNotes: NotePreviewProps[] = [
   {
-    word: "assess",
-    translation: "szacować",
-    explanation: "To estimate something.",
-    example:
-      "The kids, who are titled at the age of 9 are assessed to be strong Grandmasters in the future.",
-  },
-  {
     word: "misunderstand",
     translation: "źle zrozumieć",
     explanation: "To understand something wrong.",

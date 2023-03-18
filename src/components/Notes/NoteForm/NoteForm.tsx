@@ -5,7 +5,7 @@ import FormikWrapper, {
   formikConfig,
 } from "@/components/Form/FormikWrapper/FormikWrapper";
 import Steps from "@/components/Form/Steps/Steps";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import {
   NewNoteContext,
   newNote,
@@ -15,6 +15,7 @@ import NoteExplanation from "@/components/NoteForm/NoteExplanation/NoteExplanati
 import SubmitNoteForm from "@/components/NoteForm/SubmitNoteForm/SubmitNoteForm";
 import NoteTranslation from "@/components/NoteForm/NoteTranslation/NoteTranslation";
 import NoteWord from "@/components/NoteForm/NoteWord/NoteWord";
+import NoteDictionary from "../NoteDictionary/NoteDictionary";
 
 interface Props {
   formikConfig: formikConfig;
@@ -24,6 +25,7 @@ interface Props {
 const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
   const steps = [
     <NoteWord />,
+    <NoteDictionary />,
     <NoteTranslation />,
     <NoteExplanation />,
     <NoteExample />,
@@ -56,7 +58,8 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
         >
           <h1 className="text-[2rem]">
             <span className="capitalize">{mode}</span>{" "}
-            <span className="font-bold">{newNoteData.word}</span> note
+            <span className="font-bold capitalize">{newNoteData.word}</span>{" "}
+            note
           </h1>
           {step}
           <Steps />

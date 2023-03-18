@@ -9,7 +9,6 @@ import { usePathname } from "next/navigation";
 const Navbar = () => {
   const { supabase, session } = useSupabase();
   const pathname = usePathname();
-  console.log(pathname);
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
 
@@ -65,7 +64,10 @@ const Navbar = () => {
         </>
       ) : (
         <>
-          <Link className="text-3xl" href="/auth">
+          <Link
+            className="cursor-pointer text-3xl hover:text-yellow"
+            href="/auth"
+          >
             Login
           </Link>
         </>

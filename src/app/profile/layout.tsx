@@ -1,17 +1,18 @@
-import "server-only";
+"use client";
 
 import { ReactNode } from "react";
 import Navbar from "@/components/UI/Navbar/Navbar";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-export default async function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+const queryClient = new QueryClient({});
+
+export default function ProfileLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <Navbar />
-      <div className="h-[80vh]">{children}</div>
+      <QueryClientProvider client={queryClient}>
+        <Navbar />
+        <div className="h-[90vh]">{children}</div>
+      </QueryClientProvider>
     </>
   );
 }

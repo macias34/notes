@@ -7,7 +7,7 @@ import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProv
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
 import { note } from "@/types/supabase";
-import { sanitizeUrl } from "@/helpers/notes/notesHelpers";
+
 const NewNotePage = () => {
   const { supabase, session } = useSupabase();
   const user_id = session?.user.id;

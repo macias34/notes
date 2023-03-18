@@ -19,7 +19,7 @@ const Steps: FC = () => {
   };
 
   return (
-    <div className="flex items-center">
+    <div className="flex items-center py-10">
       {steps.map((step, index) => {
         const pointIndex = index + 1;
         return (
