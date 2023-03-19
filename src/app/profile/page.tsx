@@ -2,6 +2,7 @@ import "server-only";
 import { createServerClient } from "@/utils/supabase-server";
 import { UserDay } from "@/types/supabase";
 import dayjs from "dayjs";
+import Username from "@/components/UI/Profile/Username/Username";
 
 const ProfilePage = async () => {
   const supabase = createServerClient();
@@ -21,20 +22,28 @@ const ProfilePage = async () => {
     return <p>Error while loading user data.</p>;
   const { username } = userData[0];
 
-  const {
-    data: daysData,
-    count: daysCount,
-    error: userDatesError,
-  } = await supabase
+  const { count: daysCount, error: userDatesError } = await supabase
     .from("user_days")
-    .select("*", { count: "exact" })
+    .select("*", { count: "exact", head: true })
     .eq("user_id", id);
+
+  const outputUsername = username
+    ? username?.split("@")[0]
+    : "Click here to enter username :)";
 
   return (
     <div className="flex h-full w-full flex-col items-center gap-10 py-10">
       <div className="flex flex-col items-center justify-center gap-5">
-        <div className="h-60 w-60 rounded-full bg-secondary dark:bg-primary"></div>
-        <span className="text-xl font-bold">{username}</span>
+        <div className="h-60 w-60 rounded-full bg-secondary dark:bg-primary">
+          <input
+            type="file"
+            name=""
+            id=""
+            className="h-full w-full cursor-pointer opacity-0"
+            title="Choose avatar"
+          />
+        </div>
+        <Username username={outputUsername} />
       </div>
       <div className="flex items-center justify-center gap-10">
         <div className="flex flex-col items-center gap-3">
