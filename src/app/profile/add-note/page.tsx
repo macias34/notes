@@ -7,6 +7,7 @@ import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProv
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
 import { note } from "@/types/supabase";
+import dayjs from "dayjs";
 
 const NewNotePage = () => {
   const { supabase, session } = useSupabase();
@@ -45,7 +46,7 @@ const NewNotePage = () => {
       .insert(values)
       .select();
 
-    const { id: note_id } = (data as note[])[0];
+    const { id: note_id, created_at } = (data as note[])[0];
 
     const { error: noteUserError } = await supabase
       .from("notes_users")
@@ -58,6 +59,39 @@ const NewNotePage = () => {
           {noteError?.message || noteUserError?.message}
         </p>
       );
+    }
+
+    const date = dayjs(created_at).format("YYYY.MM.DD");
+
+    let day;
+    const { data: dayData, error: dayError } = await supabase
+      .from("user_days")
+      .select()
+      .eq("date", date)
+      .eq("user_id", user_id);
+
+    day = dayData!;
+
+    if (day?.length === 0) {
+      const { data: dayData } = await supabase
+        .from("user_days")
+        .insert({ date, user_id })
+        .select();
+      day = dayData!;
+    }
+
+    if (dayError) {
+      console.log(dayError);
+      return <p>{dayError.message}</p>;
+    }
+    const { id: user_day_id } = day[0];
+
+    const { error: notesDaysError } = await supabase
+      .from("notes_days")
+      .insert({ note_id, user_day_id });
+    if (notesDaysError) {
+      console.log(notesDaysError);
+      return <p>{notesDaysError.message}</p>;
     }
 
     router.replace("/profile/notes");

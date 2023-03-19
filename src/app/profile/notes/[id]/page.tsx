@@ -36,7 +36,7 @@ const SingleNotePage = async ({ params }: Props) => {
   const { id } = params;
 
   const { user_id, session_user_id, data } = await getNote(id);
-  const { word, translation, example, explanation, url } = data;
+  const { word, translation, example, explanation } = data;
 
   if (user_id === session_user_id && data.word)
     return (
@@ -47,7 +47,6 @@ const SingleNotePage = async ({ params }: Props) => {
           example={example}
           explanation={explanation}
           id={id}
-          url={url}
         />
       </div>
     );

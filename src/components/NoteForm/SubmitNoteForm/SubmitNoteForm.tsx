@@ -15,7 +15,6 @@ const SubmitNoteForm = () => {
   const errorMessages: string[] = Object.values(errors);
 
   const allFilled = !noteValues.some((value) => value?.length === 0);
-  console.log(allFilled);
   return (
     <>
       {allFilled ? (

@@ -26,7 +26,7 @@ const NotesPage = async () => {
   const { notes, error } = await getNotes();
 
   const filteredNotes = groupBy(notes as groupByNote[], ({ note }) => {
-    const formattedDate = dayjs(note.created_at).format("DD.MM.YYYY");
+    const formattedDate = dayjs(note.created_at).format("YYYY.MM.DD");
     return formattedDate;
   });
 

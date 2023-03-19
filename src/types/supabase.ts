@@ -1,19 +1,16 @@
-export type Json =
-  | string
-  | number
-  | boolean
-  | null
-  | { [key: string]: Json }
-  | Json[];
+export interface UserDay {
+  date: string | null;
+  id: number;
+  user_id: string | null;
+}
 
 export interface note {
   created_at: string | null;
   example: string | null;
   explanation: string | null;
-  id: number;
+  id: string;
   translation: string | null;
   word: string;
-  url?: string;
 }
 
 export interface groupByNote {
@@ -21,10 +18,9 @@ export interface groupByNote {
     created_at: string | null;
     example: string | null;
     explanation: string | null;
-    id: number;
+    id: string;
     translation: string | null;
     word: string | null;
-    url: string;
   };
 }
 
@@ -38,9 +34,17 @@ export interface noteForm {
 export interface SingleNoteProps {
   word: string | null;
   created_at: string | null;
-  id?: number;
+  id?: string;
   home?: boolean;
 }
+
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json }
+  | Json[];
 
 export interface Database {
   public: {
@@ -50,7 +54,7 @@ export interface Database {
           created_at: string | null;
           example: string | null;
           explanation: string | null;
-          id: number;
+          id: string;
           translation: string | null;
           word: string | null;
         };
@@ -58,7 +62,7 @@ export interface Database {
           created_at?: string | null;
           example?: string | null;
           explanation?: string | null;
-          id?: number;
+          id?: string;
           translation?: string | null;
           word?: string | null;
         };
@@ -66,37 +70,74 @@ export interface Database {
           created_at?: string | null;
           example?: string | null;
           explanation?: string | null;
-          id?: number;
+          id?: string;
           translation?: string | null;
           word?: string | null;
+        };
+      };
+      notes_days: {
+        Row: {
+          id: number;
+          note_id: string | null;
+          user_day_id: number | null;
+        };
+        Insert: {
+          id?: number;
+          note_id?: string | null;
+          user_day_id?: number | null;
+        };
+        Update: {
+          id?: number;
+          note_id?: string | null;
+          user_day_id?: number | null;
         };
       };
       notes_users: {
         Row: {
           id: number;
-          note_id: number | null;
+          note_id: string | null;
           user_id: string | null;
         };
         Insert: {
           id?: number;
-          note_id?: number | null;
+          note_id?: string | null;
           user_id?: string | null;
         };
         Update: {
           id?: number;
-          note_id?: number | null;
+          note_id?: string | null;
+          user_id?: string | null;
+        };
+      };
+      user_days: {
+        Row: {
+          date: string | null;
+          id: number;
+          user_id: string | null;
+        };
+        Insert: {
+          date?: string | null;
+          id?: number;
+          user_id?: string | null;
+        };
+        Update: {
+          date?: string | null;
+          id?: number;
           user_id?: string | null;
         };
       };
       users: {
         Row: {
           id: string;
+          username: string | null;
         };
         Insert: {
           id: string;
+          username?: string | null;
         };
         Update: {
           id?: string;
+          username?: string | null;
         };
       };
     };
