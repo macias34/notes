@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, memo } from "react";
+import { FC, memo, useRef } from "react";
 import useInput from "../useInput";
 import { InputProps } from "../useInput";
 import ValidationError from "@/components/Form/ValidationError/ValidationError";
@@ -14,10 +14,14 @@ const InvisibleInput: FC<InputProps> = ({
   type,
   onKeyDown,
   className,
+  onBlur,
 }) => {
   const [isError, setIsError] = useState<boolean>(false);
   const { getInputStyles } = useInput();
   const { errors, touched } = useFormikContext<any>();
+  const ref = useRef(null);
+
+  const clickedOutside = document.activeElement !== ref.current;
 
   useEffect(() => {
     if (name in errors && touched[name]) setIsError(true);
@@ -36,12 +40,14 @@ const InvisibleInput: FC<InputProps> = ({
           {label}
         </label>
         <Field
+          innerRef={ref}
           placeholder={placeholder}
           name={name}
           type={type}
           onKeyDown={onKeyDown}
           spellCheck="false"
           autoFocus
+          onBlur={onBlur}
           className={`bg-transparent text-center font-bold text-yellow  focus:outline-none ${className}`}
         />
       </div>

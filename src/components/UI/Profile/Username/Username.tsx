@@ -5,7 +5,7 @@ import FormikWrapper, {
 } from "@/components/Form/FormikWrapper/FormikWrapper";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { usernameSchema } from "@/validations/profile";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import InvisibleInput from "../../Input/InvisibleInput/InvisibleInput";
 
 interface Props {
@@ -48,12 +48,16 @@ const Username: FC<Props> = ({ username, id }) => {
         className="flex w-full flex-col items-center justify-center"
         formikConfig={formikConfig}
       >
-        <InvisibleInput
-          label=""
-          placeholder="funnyusernamexdd"
-          name="username"
-          className="text-xl font-bold"
-        />
+        <div className="h-full w-full">
+          <InvisibleInput
+            label=""
+            placeholder="funnyusernamexdd"
+            name="username"
+            className="text-xl font-bold"
+            setShowInput={setShowInput}
+            onBlur={() => setShowInput(false)}
+          />
+        </div>
       </FormikWrapper>
     );
   return (

@@ -16,10 +16,8 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
   const { supabase, session } = useSupabase();
 
   const [avatarUrl, setAvatarUrl] = useState<string>(
-    userAvatarUrl ? userAvatarUrl : defaultAvatarUrl
+    userAvatarUrl ? userAvatarUrl : ""
   );
-
-  console.log(avatarUrl);
 
   const onFileUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -41,6 +39,18 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
       return;
     }
 
+    if (avatarUrl) {
+      const bucketFileUrl = avatarUrl.split("avatars/")[1];
+      const { error: removeCurrentAvatarError } = await supabase.storage
+        .from("avatars")
+        .remove([bucketFileUrl]);
+
+      if (removeCurrentAvatarError) {
+        console.log(removeCurrentAvatarError.message);
+        return;
+      }
+    }
+
     const retrievedAvatarUrl = supabaseAvatarUrl + data?.path;
     setAvatarUrl(retrievedAvatarUrl);
 
@@ -53,23 +63,13 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
       console.log(updateAvatarUrlError.message);
       return;
     }
-
-    if (avatarUrl) {
-      const bucketFileUrl = userAvatarUrl.split("avatars/")[1];
-      const { error: removeCurrentAvatarError } = await supabase.storage
-        .from("avatars")
-        .remove([bucketFileUrl]);
-
-      if (removeCurrentAvatarError) {
-        console.log(removeCurrentAvatarError.message);
-        return;
-      }
-    }
   };
 
   return (
     <div
-      style={{ backgroundImage: `url(${avatarUrl})` }}
+      style={{
+        backgroundImage: `url(${avatarUrl ? avatarUrl : defaultAvatarUrl})`,
+      }}
       className={`relative h-60 w-60 rounded-full border-4 border-secondary bg-cover bg-no-repeat dark:bg-primary`}
     >
       <input
