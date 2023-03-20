@@ -20,7 +20,7 @@ const Input: FC<InputProps> = ({
   const { errors, touched } = useFormikContext<any>();
 
   useEffect(() => {
-    if (name in errors) setIsError(true);
+    if (name in errors && touched[name]) setIsError(true);
     else setIsError(false);
   }, [errors, touched]);
 
@@ -45,9 +45,8 @@ const Input: FC<InputProps> = ({
           spellCheck="false"
           className={`${getInputStyles(isError)} ${className}`}
         />
-
-        {isError ? <ValidationError name={name} /> : ""}
       </div>
+      {isError ? <ValidationError name={name} /> : ""}
     </>
   );
 };

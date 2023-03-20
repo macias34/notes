@@ -3,6 +3,11 @@ type Message = (label?: string) => string;
 export const tooShortMessage: Message = (label) => {
   return `Too short ${label}, please type some more 😌..`;
 };
+
+export const tooLongMessage: Message = (label) => {
+  return `Too long ${label}, please type less 😌..`;
+};
+
 export const requiredMessage: Message = (label) => {
   return `Please fill in the ${label} 😓..`;
 };

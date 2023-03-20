@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 export function groupBy<T>(arr: T[], fn: (item: T) => any) {
   return arr.reduce<Record<string, T[]>>((prev, curr) => {
     const groupKey = fn(curr);
@@ -8,12 +10,9 @@ export function groupBy<T>(arr: T[], fn: (item: T) => any) {
 }
 
 export function sortDateLabels(dateObj: {}) {
-  const sortedLabels = Object.keys(dateObj).sort((a, b) => {
-    const aDay: number = parseInt(a[0] + a[1]);
-    const bDay: number = parseInt(b[0] + b[1]);
-
-    return aDay - bDay;
-  });
+  const sortedLabels = Object.keys(dateObj).sort((a, b) =>
+    dayjs(a).isAfter(dayjs(b)) ? 1 : -1
+  );
 
   return sortedLabels;
 }

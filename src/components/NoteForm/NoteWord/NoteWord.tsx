@@ -7,10 +7,6 @@ import {
 } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useFormikContext } from "formik";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
-import { useQuery } from "react-query";
-import NoteDictionary, {
-  Word,
-} from "@/components/Notes/NoteDictionary/NoteDictionary";
 
 const NoteWord: FC = () => {
   const { next, setNewNoteData, newNoteData } = useContext(
