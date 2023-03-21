@@ -1,6 +1,5 @@
 import "server-only";
 
-import Navbar from "@/components/UI/Navbar/Navbar";
 import NotePreview from "@/components/Notes/NotePreview/NotePreview";
 import dayjs from "dayjs";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
@@ -16,7 +15,6 @@ export default function Home() {
   const dateLabels = sortDateLabels(filteredNotes);
   return (
     <div className="flex flex-col items-center justify-start gap-10 py-10">
-      {/* <Navbar /> */}
       <p className="text-[3rem] font-bold">
         Create your <span className="text-accent">word notes</span> with{" "}
         <span className="text-accent">no effort</span>.

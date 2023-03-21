@@ -42,15 +42,24 @@ const NotesPage = async () => {
     );
   if (notes)
     return (
-      <div className="mt-10 flex h-full w-full items-start justify-center gap-10 px-10">
+      <div className="flex h-full w-full items-start justify-center gap-10 px-10">
         {dateLabels.map((date) => {
           const notesByDate = filteredNotes[date];
           return (
             <div
               key={date}
-              className="flex w-[10%] flex-col items-center gap-5"
+              className="mt-10 flex w-[10%] flex-col items-center gap-5"
             >
-              <span className="text-xl text-gray">{date}</span>
+              <div className="flex flex-col items-center gap-1 text-xl">
+                <span className="text-gray">{date}</span>
+                <span
+                  className={`${
+                    notesByDate.length >= 10 ? "text-accent" : ""
+                  } font-semibold`}
+                >
+                  {notesByDate.length} / 10
+                </span>
+              </div>
               <NoteList notes={notesByDate} />
             </div>
           );

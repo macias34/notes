@@ -11,7 +11,7 @@ export default function ProfileLayout({ children }: { children: ReactNode }) {
     <>
       <QueryClientProvider client={queryClient}>
         <Navbar />
-        <div className="h-[85vh]">{children}</div>
+        <div className="h-[90vh]">{children}</div>
       </QueryClientProvider>
     </>
   );
