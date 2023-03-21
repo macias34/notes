@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Home() {
   const filteredNotes = groupBy(dummySingleNotes, (note) => {
-    const formattedDate = dayjs(note.created_at).format("s");
+    const formattedDate = dayjs(note.created_at).format("YYYY-MM-DD");
     return formattedDate;
   });
   const dateLabels = sortDateLabels(filteredNotes);
