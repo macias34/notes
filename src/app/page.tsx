@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Home() {
   const filteredNotes = groupBy(dummySingleNotes, (note) => {
-    const formattedDate = dayjs(note.created_at).format("YYYY.MM.DD");
+    const formattedDate = dayjs(note.created_at).format("s");
     return formattedDate;
   });
   const dateLabels = sortDateLabels(filteredNotes);
@@ -45,7 +45,7 @@ export default function Home() {
                     {notesByDate.map(({ word, created_at }, id) => {
                       return (
                         <SingleNote
-                          id={id}
+                          id={word!}
                           home={true}
                           key={id}
                           word={word}

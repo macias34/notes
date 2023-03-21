@@ -10,7 +10,7 @@ const NoteList: FC<Props> = ({ notes }) => {
   return (
     <div className="flex w-full flex-col gap-5">
       {notes.map(({ note }) => {
-        const { word, created_at, id, url } = note;
+        const { word, created_at, id } = note;
 
         return (
           <SingleNote key={id} id={id} word={word} created_at={created_at} />
