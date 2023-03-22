@@ -75,23 +75,6 @@ export interface Database {
           word?: string | null;
         };
       };
-      notes_days: {
-        Row: {
-          id: number;
-          note_id: string | null;
-          user_day_id: number | null;
-        };
-        Insert: {
-          id?: number;
-          note_id?: string | null;
-          user_day_id?: number | null;
-        };
-        Update: {
-          id?: number;
-          note_id?: string | null;
-          user_day_id?: number | null;
-        };
-      };
       notes_users: {
         Row: {
           id: number;
@@ -106,23 +89,6 @@ export interface Database {
         Update: {
           id?: number;
           note_id?: string | null;
-          user_id?: string | null;
-        };
-      };
-      user_days: {
-        Row: {
-          date: string | null;
-          id: number;
-          user_id: string | null;
-        };
-        Insert: {
-          date?: string | null;
-          id?: number;
-          user_id?: string | null;
-        };
-        Update: {
-          date?: string | null;
-          id?: number;
           user_id?: string | null;
         };
       };
@@ -148,7 +114,23 @@ export interface Database {
       };
     };
     Views: {
-      [_ in never]: never;
+      days_count_by_user: {
+        Row: {
+          count: number | null;
+          user_id: string | null;
+        };
+      };
+      notes_by_day: {
+        Row: {
+          created_at: string | null;
+          example: string | null;
+          explanation: string | null;
+          note_id: string | null;
+          translation: string | null;
+          user_id: string | null;
+          word: string | null;
+        };
+      };
     };
     Functions: {
       [_ in never]: never;

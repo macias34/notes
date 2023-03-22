@@ -27,10 +27,13 @@ const ProfilePage = async () => {
     return <p>Error while loading user data.</p>;
   const { username, avatar_url } = userData[0];
 
-  const { count: daysCount, error: userDatesError } = await supabase
-    .from("user_days")
-    .select("*", { count: "exact", head: true })
-    .eq("user_id", id);
+  const { data: count, error: userDatesError } = await supabase
+    .from("days_count_by_user")
+    .select("count")
+    .eq("user_id", id)
+    .single();
+
+  const daysCount = count?.count;
 
   const outputUsername = username
     ? username
@@ -57,11 +60,13 @@ const ProfilePage = async () => {
           </div>
           <div className="flex flex-col items-center gap-3">
             <span className="text-xl font-semibold">Days completed</span>
-            <span className="text-xl font-bold text-accent">{daysCount}</span>
+            <span className="text-xl font-bold text-accent">
+              {daysCount ? daysCount : 0}
+            </span>
           </div>
         </div>
       </div>
-      {notes ? (
+      {notes && notes?.length > 0 ? (
         <div className="flex flex-col items-center gap-7">
           <p className="text-3xl font-semibold">Latest notes</p>
           <div className="flex gap-20">
@@ -70,9 +75,8 @@ const ProfilePage = async () => {
                 note as note;
 
               return (
-                <Link href={`/profile/notes/${id}`}>
+                <Link key={word} href={`/profile/notes/${id}`}>
                   <NotePreview
-                    key={word}
                     word={word!}
                     example={example}
                     explanation={explanation}

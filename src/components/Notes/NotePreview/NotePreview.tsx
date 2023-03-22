@@ -10,9 +10,12 @@ const NotePreview: FC<NotePreviewProps> = ({
   translation,
   explanation,
   example,
+  className,
 }) => {
   return (
-    <div className="flex max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl">
+    <div
+      className={`flex max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl ${className}`}
+    >
       <h1 className="text-3xl font-bold text-accent">{word}</h1>
       <span>means</span>
       <h2 className="text-2xl font-bold dark:text-primary">{translation}</h2>

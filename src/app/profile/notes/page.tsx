@@ -4,6 +4,7 @@ import { groupByNote, note } from "@/types/supabase";
 import dayjs from "dayjs";
 import NoteList from "@/components/Notes/NoteList/NoteList";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
+import Link from "next/link";
 
 const getNotes = async () => {
   const supabase = createServerClient();
@@ -51,7 +52,9 @@ const NotesPage = async () => {
               className="mt-10 flex w-[10%] flex-col items-center gap-5"
             >
               <div className="flex flex-col items-center gap-1 text-xl">
-                <span className="text-gray">{date}</span>
+                <Link href={`/profile/day/${date}`}>
+                  <span className="text-gray">{date}</span>
+                </Link>
                 <span
                   className={`${
                     notesByDate.length >= 10 ? "text-accent" : ""

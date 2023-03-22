@@ -61,38 +61,6 @@ const NewNotePage = () => {
       );
     }
 
-    const date = dayjs(created_at).format("YYYY.MM.DD");
-
-    let day;
-    const { data: dayData, error: dayError } = await supabase
-      .from("user_days")
-      .select()
-      .eq("date", date)
-      .eq("user_id", user_id);
-
-    day = dayData!;
-
-    if (day?.length === 0) {
-      const { data: dayData } = await supabase
-        .from("user_days")
-        .insert({ date, user_id })
-        .select();
-      day = dayData!;
-    }
-
-    if (dayError) {
-      console.log(dayError);
-      return <p>{dayError.message}</p>;
-    }
-    const { id: user_day_id } = day[0];
-
-    const { error: notesDaysError } = await supabase
-      .from("notes_days")
-      .insert({ note_id, user_day_id });
-    if (notesDaysError) {
-      console.log(notesDaysError);
-      return <p>{notesDaysError.message}</p>;
-    }
 
     router.replace("/profile/notes");
     router.refresh();

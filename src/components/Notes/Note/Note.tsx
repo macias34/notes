@@ -15,6 +15,7 @@ export interface NoteProps {
   translation: string | null;
   word: string;
   url?: string;
+  className?: string;
 }
 
 const Note: FC<NoteProps> = ({
