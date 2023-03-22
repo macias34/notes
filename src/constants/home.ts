@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { SingleNoteProps } from "@/types/supabase";
+import { SingleNoteProps } from "@/supabase/supabase-types";
 import { NotePreviewProps } from "@/components/Notes/NotePreview/NotePreview";
 
 export const dummyNotes: NotePreviewProps[] = [

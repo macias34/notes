@@ -6,7 +6,7 @@ import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
-import { note } from "@/types/supabase";
+import { note } from "@/supabase/supabase-types";
 import { useState } from "react";
 
 const NewNotePage = () => {

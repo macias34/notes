@@ -5,7 +5,6 @@ import {
   SetStateAction,
   useState,
 } from "react";
-import { InputStyles } from "@/styles/reusableStyles";
 
 export type InputType = "password" | "date" | "number" | undefined;
 
@@ -29,12 +28,9 @@ export interface RenderInput extends Partial<InputProps> {
 const useInput = () => {
   const getInputStyles = (isError: boolean): string => {
     if (isError) {
-      return InputStyles + "border-red focus:border-red  dark:focus:border-red";
+      return "relative w-fit appearance-none rounded-lg border-2 bg-primary py-3 px-4 text-black outline-none transition placeholder:text-gray dark:bg-secondary dark:text-primary  border-red focus:border-red  dark:focus:border-red";
     } else {
-      return (
-        InputStyles +
-        "border-gray focus:border-secondary dark:focus:border-primary"
-      );
+      return "relative w-fit appearance-none rounded-lg border-2 bg-primary py-3 px-4 text-black outline-none transition placeholder:text-gray dark:bg-secondary dark:text-primary  border-gray focus:border-secondary dark:focus:border-primary";
     }
   };
 

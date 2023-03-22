@@ -1,4 +1,4 @@
-import { groupByNote } from "@/types/supabase";
+import { groupByNote } from "@/supabase/supabase-types";
 import { FC } from "react";
 import SingleNote from "@/components/UI/Profile/Notes/SingleNote/SingleNote";
 

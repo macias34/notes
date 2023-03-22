@@ -1,7 +1,7 @@
 "use client";
 
 import Button from "@/components/UI/Button/Button";
-import { noteNoteID } from "@/types/supabase";
+import { noteNoteID } from "@/supabase/supabase-types";
 import Link from "next/link";
 import { FC, useState } from "react";
 import NotePreview from "../NotePreview/NotePreview";

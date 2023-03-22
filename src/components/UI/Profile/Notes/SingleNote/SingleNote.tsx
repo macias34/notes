@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { SingleNoteProps } from "@/types/supabase";
+import { SingleNoteProps } from "@/supabase/supabase-types";
 import Link from "next/link";
 
 const SingleNote: FC<SingleNoteProps> = ({ word, home, id }) => {

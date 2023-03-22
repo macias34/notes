@@ -1,5 +1,5 @@
 import "server-only";
-import { createServerClient } from "@/utils/supabase-server";
+import { createServerClient } from "@/supabase/supabase-server";
 import { redirect } from "next/navigation";
 import dayjs from "dayjs";
 import NotesGrid from "@/components/Notes/NotesGrid/NotesGrid";

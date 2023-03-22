@@ -1,5 +1,5 @@
 "use client";
-import { groupByNote } from "@/types/supabase";
+import { groupByNote } from "@/supabase/supabase-types";
 import { FC, useState } from "react";
 import NoteList from "../NoteList/NoteList";
 interface Props {

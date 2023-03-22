@@ -1,6 +1,6 @@
 import "server-only";
-import { createServerClient } from "@/utils/supabase-server";
-import { note } from "@/types/supabase";
+import { createServerClient } from "@/supabase/supabase-server";
+import { note } from "@/supabase/supabase-types";
 import { redirect } from "next/navigation";
 import Note from "@/components/Notes/Note/Note";
 
