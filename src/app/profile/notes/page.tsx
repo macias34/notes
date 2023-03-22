@@ -2,7 +2,6 @@ import "server-only";
 import { createServerClient } from "@/utils/supabase-server";
 import { groupByNote, note } from "@/types/supabase";
 import dayjs from "dayjs";
-import NoteList from "@/components/Notes/NoteList/NoteList";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import Link from "next/link";
 import FoldableNoteList from "@/components/Notes/FoldableNoteList/FoldableNoteList";
@@ -27,6 +26,8 @@ const getNotes = async () => {
 const NotesPage = async () => {
   const { notes, error } = await getNotes();
 
+  if (error) return <p>Unexpected error occured. We're sorry.</p>;
+
   const filteredNotes = groupBy(notes as groupByNote[], ({ note }) => {
     const formattedDate = dayjs(note.created_at).format("YYYY.MM.DD");
     return formattedDate;
@@ -44,7 +45,7 @@ const NotesPage = async () => {
     );
   if (notes)
     return (
-      <div className="flex h-full w-full items-start justify-center gap-10 px-10">
+      <div className="flex h-full w-full flex-wrap items-start justify-center gap-5 px-10 py-5">
         {dateLabels.map((date) => {
           const notesByDate = filteredNotes[date];
           const urlDate = date.replaceAll(".", "-");
