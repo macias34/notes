@@ -28,6 +28,13 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
     }
 
     const avatar = fileInput.files[0];
+    const isExtValid = avatar.name.match(/\.(jpg|jpeg|png|gif)$/i);
+
+    if (!isExtValid) {
+      alert("This file is unsupported, we're sorry!");
+      return;
+    }
+
     const savePath = `${id}/${avatar.name}`;
 
     const { data, error } = await supabase.storage
@@ -74,6 +81,7 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
     >
       <input
         type="file"
+        accept="image/x-png,image/gif,image/jpeg"
         className="absolute h-full w-full cursor-pointer opacity-0"
         title="Upload avatar"
         onChange={onFileUpload}
