@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import NoteList from "@/components/Notes/NoteList/NoteList";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import Link from "next/link";
+import FoldableNoteList from "@/components/Notes/FoldableNoteList/FoldableNoteList";
 
 const getNotes = async () => {
   const supabase = createServerClient();
@@ -50,21 +51,14 @@ const NotesPage = async () => {
           return (
             <div
               key={date}
-              className="mt-10 flex w-[10%] flex-col items-center gap-5"
+              className="mt-10 flex w-[10%] flex-col items-center gap-1"
             >
-              <div className="flex flex-col items-center gap-1 text-xl">
-                <Link href={`/profile/date/${urlDate}`}>
-                  <span className="text-gray">{date}</span>
-                </Link>
-                <span
-                  className={`${
-                    notesByDate.length >= 10 ? "text-accent" : ""
-                  } font-semibold`}
-                >
-                  {notesByDate.length} / 10
+              <Link href={`/profile/date/${urlDate}`}>
+                <span className="text-xl text-gray transition hover:text-secondary dark:hover:text-primary">
+                  {date}
                 </span>
-              </div>
-              <NoteList notes={notesByDate} />
+              </Link>
+              <FoldableNoteList notesByDate={notesByDate} />
             </div>
           );
         })}
