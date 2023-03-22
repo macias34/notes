@@ -37,7 +37,12 @@ const EditNotePage = async ({ params }: Props) => {
 
   const { user_id, session_user_id, data } = await getNote(id);
 
-  if (user_id === session_user_id && data.word) return <EditNote data={data} />;
+  if (user_id === session_user_id && data.word)
+    return (
+      <div className="h-[90vh]">
+        <EditNote data={data} />
+      </div>
+    );
   else redirect("/profile/notes");
 };
 

@@ -50,6 +50,7 @@ const NoteInput: FC<InputProps> = ({
           placeholder={placeholder}
           name={name}
           type="text"
+          autoFocus
           onInput={onInput}
           onKeyDown={onKeyDown}
           spellCheck="false"

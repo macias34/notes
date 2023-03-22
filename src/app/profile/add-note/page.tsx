@@ -22,25 +22,6 @@ const NewNotePage = () => {
   };
 
   const onSubmit = async (values: newNote) => {
-    const { word } = values;
-
-    const { data: notes, error } = await supabase
-      .from("notes_users")
-      .select(`note:notes(*)`)
-      .eq("user_id", user_id);
-
-    const isDuplicated = notes?.some(({ note }) => {
-      const { word: wordToSearch } = note as note;
-      if (wordToSearch === word) {
-        return true;
-      } else return false;
-    });
-
-    if (isDuplicated) {
-      alert("Note for this word already exists!");
-      return;
-    }
-
     const { error: noteError, data } = await supabase
       .from("notes")
       .insert(values)
@@ -61,7 +42,6 @@ const NewNotePage = () => {
       );
     }
 
-
     router.replace("/profile/notes");
     router.refresh();
   };
@@ -72,7 +52,11 @@ const NewNotePage = () => {
     validationSchema: noteFormSchema,
   };
 
-  return <NoteForm mode="add" formikConfig={formikConfig} />;
+  return (
+    <div className="h-[90vh]">
+      <NoteForm mode="add" formikConfig={formikConfig} />;
+    </div>
+  );
 };
 
 export default NewNotePage;

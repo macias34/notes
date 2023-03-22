@@ -40,7 +40,7 @@ const SingleNotePage = async ({ params }: Props) => {
 
   if (user_id === session_user_id && data.word)
     return (
-      <div className="flex h-full w-full flex-col items-center justify-center gap-10">
+      <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10">
         <Note
           word={word}
           translation={translation}

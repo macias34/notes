@@ -25,6 +25,8 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
 
       case "yellow":
         return "btn__yellow";
+      case "primary":
+        return "btn__primary";
       default:
         break;
     }

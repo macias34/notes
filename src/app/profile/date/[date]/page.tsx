@@ -1,9 +1,11 @@
 import "server-only";
-import { FC } from "react";
 import { createServerClient } from "@/utils/supabase-server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import NotePreview from "@/components/Notes/NotePreview/NotePreview";
+import dayjs from "dayjs";
+import Test from "@/components/Notes/Test/Test";
+import NotesGrid from "@/components/Notes/NotesGrid/NotesGrid";
 
 interface Params {
   params: {
@@ -18,32 +20,21 @@ const DayPage = async ({ params }: Params) => {
   const user_id = user.data.user?.id;
 
   const { data: notes, error } = await supabase
-    .from("notes_by_day")
+    .from("notes_by_date")
     .select()
     .eq("created_at", date)
     .eq("user_id", user_id);
 
-  return (
-    <div className="flex h-full w-full flex-wrap items-start justify-center p-10">
-      {notes?.map((note) => {
-        const { word, example, explanation, translation, note_id } = note;
+  if (notes?.length === 0 || !notes || error) redirect("/profile/notes");
 
-        return (
-          <Link
-            className="scale-75"
-            href={`/profile/notes/${note_id}`}
-            key={note_id}
-          >
-            <NotePreview
-              word={word!}
-              example={example}
-              explanation={explanation}
-              translation={translation}
-              className=""
-            />
-          </Link>
-        );
-      })}
+  const formattedDate = dayjs(date).format("DD MMMM YYYY");
+
+  return (
+    <div className="relative flex flex-col items-center gap-7 p-10">
+      <h1 className="text-3xl font-semibold">
+        Notes for <span className="text-accent">{formattedDate}</span>
+      </h1>
+      <NotesGrid notes={notes} />
     </div>
   );
 };

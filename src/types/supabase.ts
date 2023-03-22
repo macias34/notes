@@ -13,6 +13,15 @@ export interface note {
   word: string;
 }
 
+export interface noteNoteID {
+  created_at: string | null;
+  example: string | null;
+  explanation: string | null;
+  note_id: string | null;
+  translation: string | null;
+  word: string | null;
+}
+
 export interface groupByNote {
   note: {
     created_at: string | null;
@@ -120,7 +129,7 @@ export interface Database {
           user_id: string | null;
         };
       };
-      notes_by_day: {
+      notes_by_date: {
         Row: {
           created_at: string | null;
           example: string | null;

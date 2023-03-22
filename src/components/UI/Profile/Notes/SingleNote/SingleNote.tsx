@@ -12,8 +12,8 @@ const SingleNote: FC<SingleNoteProps> = ({ word, home, id }) => {
 
   return (
     <Link className="transition hover:scale-105" href={`/profile/notes/${id}`}>
-      <div className="flex min-w-[8rem] items-center justify-center gap-5 rounded-xl bg-secondary px-5 py-3 text-center text-lg font-semibold capitalize text-primary dark:bg-primary dark:text-secondary">
-        {word}
+      <div className="flex min-w-[8rem] items-center justify-center gap-5 rounded-xl bg-secondary px-5 py-3 text-center text-lg font-semibold  text-primary dark:bg-primary dark:text-secondary">
+        <span className="first-letter:capitalize">{word}</span>
       </div>
     </Link>
   );

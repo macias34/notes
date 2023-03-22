@@ -47,7 +47,7 @@ const ProfilePage = async () => {
     .limit(3);
 
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-10">
+    <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col items-center justify-center gap-5">
           <Avatar userAvatarUrl={avatar_url!} id={id} />

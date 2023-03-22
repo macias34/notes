@@ -35,7 +35,7 @@ const NotesPage = async () => {
 
   if (notes?.length === 0)
     return (
-      <div className="flex h-full w-full items-center justify-center">
+      <div className="flex h-[90vh] w-full items-center justify-center">
         <h1 className="text-2xl font-semibold">
           You don't have any notes yet! Try adding one.
         </h1>
@@ -46,13 +46,14 @@ const NotesPage = async () => {
       <div className="flex h-full w-full items-start justify-center gap-10 px-10">
         {dateLabels.map((date) => {
           const notesByDate = filteredNotes[date];
+          const urlDate = date.replaceAll(".", "-");
           return (
             <div
               key={date}
               className="mt-10 flex w-[10%] flex-col items-center gap-5"
             >
               <div className="flex flex-col items-center gap-1 text-xl">
-                <Link href={`/profile/day/${date}`}>
+                <Link href={`/profile/date/${urlDate}`}>
                   <span className="text-gray">{date}</span>
                 </Link>
                 <span
