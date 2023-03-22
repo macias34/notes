@@ -7,9 +7,10 @@ import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProv
 import { useRouter } from "next/navigation";
 import NoteForm from "@/components/Notes/NoteForm/NoteForm";
 import { note } from "@/types/supabase";
-import dayjs from "dayjs";
+import { useState } from "react";
 
 const NewNotePage = () => {
+  const [submitted, setSubmitted] = useState<boolean>(false);
   const { supabase, session } = useSupabase();
   const user_id = session?.user.id;
   const router = useRouter();
@@ -22,6 +23,8 @@ const NewNotePage = () => {
   };
 
   const onSubmit = async (values: newNote) => {
+    if (submitted) return;
+    setSubmitted(true);
     const { error: noteError, data } = await supabase
       .from("notes")
       .insert(values)
@@ -34,6 +37,7 @@ const NewNotePage = () => {
       .insert({ user_id, note_id });
 
     if (noteError || noteUserError) {
+      setSubmitted(false);
       console.log(noteError || noteUserError);
       return (
         <p className="text-3xl font-bold">
@@ -41,7 +45,6 @@ const NewNotePage = () => {
         </p>
       );
     }
-
     router.replace("/profile/notes");
     router.refresh();
   };

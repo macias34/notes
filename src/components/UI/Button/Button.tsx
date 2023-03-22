@@ -14,6 +14,7 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
   onClick,
   type,
   color,
+  autoFocus,
 }) => {
   const getButtonColor = (color: ButtonColor) => {
     switch (color) {
@@ -36,6 +37,7 @@ const Button: FC<Props & HTMLProps<HTMLButtonElement>> = ({
     <button
       onClick={onClick}
       type={type}
+      autoFocus={autoFocus}
       className={`btn ${getButtonColor(color)} ${className} `}
     >
       {children}

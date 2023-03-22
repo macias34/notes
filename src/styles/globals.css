@@ -31,7 +31,7 @@ svg {
 }
 
 .btn__green {
- @apply border-accent text-accent hover:bg-accent focus:bg-accent focus:text-primary
+ @apply border-accent text-accent hover:bg-accent focus:bg-accent focus:text-primary outline-accent 
 }
 
 .btn__red {
