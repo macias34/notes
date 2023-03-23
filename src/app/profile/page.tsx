@@ -1,6 +1,6 @@
 import "server-only";
 import { createServerClient } from "@/supabase/supabase-server";
-import Username from "@/components/UI/Profile/Username/Username";
+import Username from "@/components/Profile/Username/Username";
 import { redirect } from "next/navigation";
 import Avatar from "@/components/Profile/Avatar/Avatar";
 import { note } from "@/supabase/supabase-types";

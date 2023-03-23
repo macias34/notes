@@ -5,8 +5,8 @@ import FormikWrapper, {
 } from "@/components/Form/FormikWrapper/FormikWrapper";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { usernameSchema } from "@/validations/profile";
-import { FC, useEffect, useState } from "react";
-import InvisibleInput from "../../Input/InvisibleInput/InvisibleInput";
+import { FC, useState } from "react";
+import InvisibleInput from "@/components/UI/Input/InvisibleInput/InvisibleInput";
 
 interface Props {
   username: string;
@@ -54,7 +54,6 @@ const Username: FC<Props> = ({ username, id }) => {
             placeholder="funnyusernamexdd"
             name="username"
             className="text-xl font-bold"
-            setShowInput={setShowInput}
             onBlur={() => setShowInput(false)}
           />
         </div>

@@ -10,11 +10,11 @@ import {
   NewNoteContext,
   newNote,
 } from "@/contexts/NoteFormContext/NoteFormContext";
-import NoteExample from "@/components/NoteForm/NoteExample/NoteExample";
-import NoteExplanation from "@/components/NoteForm/NoteExplanation/NoteExplanation";
-import SubmitNoteForm from "@/components/NoteForm/SubmitNoteForm/SubmitNoteForm";
-import NoteTranslation from "@/components/NoteForm/NoteTranslation/NoteTranslation";
-import NoteWord from "@/components/NoteForm/NoteWord/NoteWord";
+import NoteExample from "@/components/Notes/NoteForm/NoteExample/NoteExample";
+import NoteExplanation from "@/components/Notes/NoteForm/NoteExplanation/NoteExplanation";
+import SubmitNoteForm from "@/components/Notes/NoteForm/SubmitNoteForm/SubmitNoteForm";
+import NoteTranslation from "@/components/Notes/NoteForm/NoteTranslation/NoteTranslation";
+import NoteWord from "@/components/Notes/NoteForm/NoteWord/NoteWord";
 import NoteDictionary from "../NoteDictionary/NoteDictionary";
 
 interface Props {
@@ -24,12 +24,12 @@ interface Props {
 
 const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
   const steps = [
-    <NoteWord />,
-    <NoteDictionary />,
-    <NoteTranslation />,
-    <NoteExplanation />,
-    <NoteExample />,
-    <SubmitNoteForm />,
+    <NoteWord key={"word"} />,
+    <NoteDictionary key={"dictionary"} />,
+    <NoteTranslation key={"translation"} />,
+    <NoteExplanation key={"explanation"} />,
+    <NoteExample key={"example"} />,
+    <SubmitNoteForm key={"submitForm"} />,
   ];
 
   const initialValues = formikConfig.initialValues as newNote;

@@ -1,10 +1,4 @@
-import {
-  Dispatch,
-  InputHTMLAttributes,
-  Ref,
-  SetStateAction,
-  useState,
-} from "react";
+import { InputHTMLAttributes, Ref } from "react";
 
 export type InputType = "password" | "date" | "number" | undefined;
 
@@ -15,14 +9,6 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
   ref?: Ref<HTMLInputElement>;
   values?: any[];
-  setShowInput?: Dispatch<SetStateAction<boolean>>;
-}
-
-export interface RenderInput extends Partial<InputProps> {
-  name: string;
-  type?: InputType;
-  placeholder: string;
-  isError: boolean;
 }
 
 const useInput = () => {

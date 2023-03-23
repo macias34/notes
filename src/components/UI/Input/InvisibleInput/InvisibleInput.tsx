@@ -17,7 +17,6 @@ const InvisibleInput: FC<InputProps> = ({
   onBlur,
 }) => {
   const [isError, setIsError] = useState<boolean>(false);
-  const { getInputStyles } = useInput();
   const { errors, touched } = useFormikContext<any>();
   const ref = useRef(null);
 
@@ -26,7 +25,7 @@ const InvisibleInput: FC<InputProps> = ({
   useEffect(() => {
     if (name in errors && touched[name]) setIsError(true);
     else setIsError(false);
-  }, [errors, touched]);
+  }, [errors, touched, name]);
 
   return (
     <>

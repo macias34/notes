@@ -1,5 +1,5 @@
 "use client";
-import Button from "../UI/Button/Button";
+import Button from "../Button/Button";
 import { useEffect, useState } from "react";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 

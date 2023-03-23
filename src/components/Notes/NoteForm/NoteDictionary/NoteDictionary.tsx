@@ -61,7 +61,7 @@ const NoteDictionary = () => {
 
   useEffect(() => {
     if (currentWord.length > 0) refetch();
-  }, [currentWord]);
+  }, [currentWord, refetch]);
 
   useEffect(() => {
     if (containerRef.current) containerRef.current.focus();
@@ -112,7 +112,9 @@ const NoteDictionary = () => {
       );
     } else
       return (
-        <p className="text-3xl">Couldn't get the definition, we're sorry 😐.</p>
+        <p className="text-3xl">
+          Couldn&apos;t get the definition, we&apos;re sorry 😐.
+        </p>
       );
   };
 

@@ -5,7 +5,7 @@ import SupabaseProvider from "@/components/Supabase/SupabaseProvider/SupabasePro
 import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseListener";
 import { ReactNode } from "react";
 import { createServerClient } from "../supabase/supabase-server";
-import ThemeToggle from "@/components/ThemeToggle/ThemeToggle";
+import ThemeToggle from "@/components/UI/ThemeToggle/ThemeToggle";
 
 export default async function RootLayout({
   children,

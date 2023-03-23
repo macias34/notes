@@ -31,7 +31,7 @@ const NoteInput: FC<InputProps> = ({
   useEffect(() => {
     if (name in errors && touched[name]) setIsError(true);
     else setIsError(false);
-  }, [errors, touched]);
+  }, [errors, touched, name]);
 
   return (
     <>

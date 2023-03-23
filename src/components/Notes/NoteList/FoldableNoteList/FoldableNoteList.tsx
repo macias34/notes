@@ -1,7 +1,7 @@
 "use client";
 import { groupByNote } from "@/supabase/supabase-types";
 import { FC, useState } from "react";
-import NoteList from "../NoteList/NoteList";
+import NoteList from "../NoteList";
 interface Props {
   notesByDate: groupByNote[];
 }

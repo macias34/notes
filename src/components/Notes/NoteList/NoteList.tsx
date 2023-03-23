@@ -1,6 +1,6 @@
 import { groupByNote } from "@/supabase/supabase-types";
 import { FC } from "react";
-import SingleNote from "@/components/UI/Profile/Notes/SingleNote/SingleNote";
+import SingleNote from "./SingleNote/SingleNote";
 
 interface Props {
   notes: groupByNote[];

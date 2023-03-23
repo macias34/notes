@@ -3,7 +3,7 @@ import "server-only";
 import NotePreview from "@/components/Notes/NotePreview/NotePreview";
 import dayjs from "dayjs";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
-import SingleNote from "@/components/UI/Profile/Notes/SingleNote/SingleNote";
+import SingleNote from "@/components/Notes/NoteList/SingleNote/SingleNote";
 import { dummySingleNotes, dummyNotes } from "@/constants/home";
 import Link from "next/link";
 
