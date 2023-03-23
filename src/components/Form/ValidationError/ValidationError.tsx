@@ -8,10 +8,16 @@ interface Props {
 
 const ValidationError: FC<Props> = ({ name }) => {
   return (
-    <p className={`text-sm text-red transition `}>
-      <BsFillExclamationCircleFill className="mr-2 inline" />
-      <ErrorMessage name={name} />
-    </p>
+    <>
+      {<ErrorMessage name={name} /> ? (
+        <p className={`text-sm text-red transition `}>
+          <BsFillExclamationCircleFill className="mr-2 inline" />
+          <ErrorMessage name={name} />
+        </p>
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

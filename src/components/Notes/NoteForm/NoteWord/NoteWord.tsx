@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, FormEvent, KeyboardEvent, useContext, useEffect } from "react";
+import { FC, FormEvent, KeyboardEvent, useContext } from "react";
 import {
   NewNoteContext,
   NewNoteFunctions,
@@ -9,7 +9,7 @@ import { useFormikContext } from "formik";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 
 const NoteWord: FC = () => {
-  const { next, setNewNoteData, newNoteData } = useContext(
+  const { next, setNewNoteData } = useContext(
     NewNoteContext
   ) as NewNoteFunctions;
 

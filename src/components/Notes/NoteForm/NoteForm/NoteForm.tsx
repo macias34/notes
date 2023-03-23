@@ -5,7 +5,7 @@ import FormikWrapper, {
   formikConfig,
 } from "@/components/Form/FormikWrapper/FormikWrapper";
 import Steps from "@/components/Form/Steps/Steps";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import {
   NewNoteContext,
   newNote,

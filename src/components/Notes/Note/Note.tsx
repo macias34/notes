@@ -1,8 +1,6 @@
 "use client";
 
 import { FC } from "react";
-import { noteForm, note } from "@/supabase/supabase-types";
-import StyledLink from "@/components/UI/StyledLink/StyledLink";
 import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
@@ -14,7 +12,6 @@ export interface NoteProps {
   id: string;
   translation: string | null;
   word: string;
-  url?: string;
   className?: string;
 }
 
@@ -24,7 +21,6 @@ const Note: FC<NoteProps> = ({
   explanation,
   example,
   id,
-  url,
 }) => {
   const { supabase } = useSupabase();
   const router = useRouter();

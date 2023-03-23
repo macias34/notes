@@ -13,7 +13,7 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
 
   const defaultAvatarUrl =
     supabaseAvatarUrl + "default_avatar.jpg?t=2023-03-20T09%3A59%3A02.541Z";
-  const { supabase, session } = useSupabase();
+  const { supabase } = useSupabase();
 
   const [avatarUrl, setAvatarUrl] = useState<string>(
     userAvatarUrl ? userAvatarUrl : ""

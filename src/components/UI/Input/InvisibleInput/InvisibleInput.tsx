@@ -20,8 +20,6 @@ const InvisibleInput: FC<InputProps> = ({
   const { errors, touched } = useFormikContext<any>();
   const ref = useRef(null);
 
-  const clickedOutside = document.activeElement !== ref.current;
-
   useEffect(() => {
     if (name in errors && touched[name]) setIsError(true);
     else setIsError(false);

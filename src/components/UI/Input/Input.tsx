@@ -3,9 +3,7 @@
 import { FC, memo } from "react";
 import useInput from "./useInput";
 import { InputProps } from "./useInput";
-import ValidationError from "../../Form/ValidationError/ValidationError";
-import { useFormikContext, Field, FormikTouched } from "formik";
-import { useState, useEffect } from "react";
+import { Field } from "formik";
 
 const Input: FC<InputProps> = ({
   label,
@@ -14,23 +12,13 @@ const Input: FC<InputProps> = ({
   type,
   onKeyDown,
   className,
+  autoFocus,
 }) => {
-  const [isError, setIsError] = useState<boolean>(false);
   const { getInputStyles } = useInput();
-  const { errors, touched } = useFormikContext<any>();
-
-  useEffect(() => {
-    if (name in errors && touched[name]) setIsError(true);
-    else setIsError(false);
-  }, [errors, touched, name]);
 
   return (
     <>
-      <div
-        className={`items-left relative flex flex-col gap-3 ${
-          isError ? "mb-4" : "mb-8"
-        }`}
-      >
+      <div className={`items-left relative flex flex-col gap-3`}>
         <label
           className="text-xs font-semibold uppercase tracking-wide text-secondary dark:text-primary"
           htmlFor={name}
@@ -41,12 +29,12 @@ const Input: FC<InputProps> = ({
           placeholder={placeholder}
           name={name}
           type={type}
+          autoFocus={autoFocus}
           onKeyDown={onKeyDown}
           spellCheck="false"
-          className={`${getInputStyles(isError)} ${className}`}
+          className={`${getInputStyles(false)} ${className}`}
         />
       </div>
-      {isError ? <ValidationError name={name} /> : ""}
     </>
   );
 };

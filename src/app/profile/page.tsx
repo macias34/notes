@@ -27,7 +27,7 @@ const ProfilePage = async () => {
     return <p>Error while loading user data.</p>;
   const { username, avatar_url } = userData[0];
 
-  const { data: count, error: userDatesError } = await supabase
+  const { data: count } = await supabase
     .from("days_count_by_user")
     .select("count")
     .eq("user_id", id)
@@ -39,12 +39,14 @@ const ProfilePage = async () => {
     ? username
     : "Click here to enter username :)";
 
-  const { data: notes, error } = await supabase
+  const { data: notes, error: notesError } = await supabase
     .from("notes_users")
     .select(`note:notes(*)`)
     .eq("user_id", id)
     .order("id", { ascending: false })
     .limit(3);
+
+  if (notesError) return <p>Error while loading latest notes.</p>;
 
   return (
     <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10">

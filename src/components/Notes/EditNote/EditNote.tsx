@@ -9,7 +9,7 @@ import NoteForm from "../NoteForm/NoteForm/NoteForm";
 import { note } from "@/supabase/supabase-types";
 
 const EditNote = ({ data }: { data: note }) => {
-  const { supabase, session } = useSupabase();
+  const { supabase } = useSupabase();
   const router = useRouter();
 
   const { word, translation, explanation, example, id } = data;
@@ -24,7 +24,7 @@ const EditNote = ({ data }: { data: note }) => {
   const formikConfig: formikConfig = {
     initialValues,
     onSubmit: async (values: newNote) => {
-      const { data: noteData, error: noteError } = await supabase
+      const { error: noteError } = await supabase
         .from("notes")
         .update(values)
         .eq("id", id);

@@ -1,6 +1,5 @@
 "use client";
 
-import { useFormikContext } from "formik";
 import { ReactElement, useState } from "react";
 
 const useMultiStepForm = (steps: ReactElement[]) => {

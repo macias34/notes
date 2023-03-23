@@ -1,4 +1,4 @@
-import { object, string, ref } from "yup";
+import { object, string } from "yup";
 import { requiredMessage, tooLongMessage, tooShortMessage } from "./messages";
 
 export const usernameSchema = object({

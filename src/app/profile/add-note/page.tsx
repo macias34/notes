@@ -30,7 +30,7 @@ const NewNotePage = () => {
       .insert(values)
       .select();
 
-    const { id: note_id, created_at } = (data as note[])[0];
+    const { id: note_id } = (data as note[])[0];
 
     const { error: noteUserError } = await supabase
       .from("notes_users")

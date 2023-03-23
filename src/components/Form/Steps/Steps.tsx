@@ -1,19 +1,14 @@
-import { FC, Fragment, ReactElement, useContext } from "react";
+import { FC, Fragment, useContext } from "react";
 import {
   NewNoteContext,
   NewNoteFunctions,
-  NewNoteSteps,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 
-import { useFormikContext } from "formik";
-
 const Steps: FC = () => {
-  const { newNoteData, steps, goTo, currentStep } = useContext(
+  const { steps, goTo, currentStep } = useContext(
     NewNoteContext
   ) as NewNoteFunctions;
 
-  const { errors } = useFormikContext();
-  const valid = !(NewNoteSteps[currentStep] in errors);
   const switchStep = (index: number) => {
     goTo(index);
   };

@@ -18,7 +18,8 @@ const getNote = async (id: string) => {
 
   const { data, error } = await supabase.from("notes").select().eq("id", id);
 
-  if (data?.length === 0) redirect("/profile/notes");
+  if (error) redirect("/profile/notes");
+  if (data.length === 0) redirect("/profile/notes");
 
   const { data: user_id } = await supabase
     .from("notes_users")

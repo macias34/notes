@@ -1,6 +1,6 @@
 import "server-only";
 import { createServerClient } from "@/supabase/supabase-server";
-import { groupByNote, note } from "@/supabase/supabase-types";
+import { groupByNote } from "@/supabase/supabase-types";
 import dayjs from "dayjs";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import Link from "next/link";
