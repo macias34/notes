@@ -15,7 +15,7 @@ const SubmitNoteForm = () => {
 
   const allFilled = !noteValues.some((value) => value?.length === 0);
   return (
-    <>
+    <div className="flex flex-col items-center gap-10">
       {allFilled ? (
         <>
           <NotePreview
@@ -33,7 +33,7 @@ const SubmitNoteForm = () => {
           Please fill in all fields to see the preview! :)
         </h1>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,8 +1,8 @@
 "use client";
 
 import { FC } from "react";
+import { motion } from "framer-motion";
 import type { Note } from "@/supabase/supabase-types";
-
 export type NotePreviewProps = Omit<Note, "id" | "created_at">;
 
 const NotePreview: FC<NotePreviewProps> = ({

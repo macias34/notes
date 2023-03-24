@@ -2,6 +2,7 @@
 import { NoteNoteID } from "@/supabase/supabase-types";
 import { FC, useState } from "react";
 import NoteList from "../NoteList";
+import { motion, AnimatePresence } from "framer-motion";
 interface Props {
   notesByDate: NoteNoteID[];
 }
@@ -21,8 +22,19 @@ const FoldableNoteList: FC<Props> = ({ notesByDate }) => {
       >
         {notesByDate.length} / 10
       </span>
-
-      {unfolded ? <NoteList notes={notesByDate} /> : ""}
+      <AnimatePresence>
+        {unfolded ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <NoteList notes={notesByDate} />
+          </motion.div>
+        ) : (
+          ""
+        )}
+      </AnimatePresence>
     </>
   );
 };

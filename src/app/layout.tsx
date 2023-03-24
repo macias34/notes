@@ -6,6 +6,7 @@ import SupabaseListener from "@/components/Supabase/SupabaseListener/SupabaseLis
 import { ReactNode } from "react";
 import { createServerClient } from "../supabase/supabase-server";
 import ThemeToggle from "@/components/UI/ThemeToggle/ThemeToggle";
+import Navbar from "@/components/UI/Navbar/Navbar";
 
 export default async function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default async function RootLayout({
       <body className="bg-primary text-secondary dark:bg-secondary dark:text-primary">
         <SupabaseProvider session={session}>
           <SupabaseListener serverAccessToken={session?.access_token} />
+          <Navbar />
           <ThemeToggle />
           {children}
         </SupabaseProvider>

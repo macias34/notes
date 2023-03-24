@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import useMultiStepForm from "@/components/Form/MultiStepForm/useMultiStepForm";
 import FormikWrapper, {
   formikConfig,
@@ -59,7 +60,21 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
             <span className="font-bold text-accent">{newNoteData.word}</span>{" "}
             note
           </h1>
-          {step}
+          <motion.div
+            key={currentStep}
+            initial="initial"
+            animate="animate"
+            variants={{
+              initial: {
+                opacity: 0,
+              },
+              animate: {
+                opacity: 1,
+              },
+            }}
+          >
+            {step}
+          </motion.div>
           <Steps />
         </FormikWrapper>
       </div>
