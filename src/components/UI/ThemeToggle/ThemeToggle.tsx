@@ -18,7 +18,7 @@ const ThemeToggle = () => {
   return (
     <button
       type="button"
-      className="fixed top-5 right-5 rounded-full bg-gray p-2 text-3xl text-primary dark:bg-yellow dark:text-primary"
+      className="fixed top-5 right-5 rounded-full bg-gray p-2 text-3xl text-primary dark:bg-yellow dark:text-primary sm:top-3 sm:right-3 sm:text-lg"
       onClick={toggleTheme}
     >
       {theme === "dark" ? <BsFillSunFill /> : <BsFillMoonFill />}

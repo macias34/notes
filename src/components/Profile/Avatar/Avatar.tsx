@@ -77,7 +77,7 @@ const Avatar: FC<Props> = ({ id, userAvatarUrl }) => {
       style={{
         backgroundImage: `url(${avatarUrl ? avatarUrl : defaultAvatarUrl})`,
       }}
-      className={`relative h-60 w-60 rounded-full border-4 border-secondary bg-cover bg-no-repeat dark:bg-primary`}
+      className={`relative h-60 w-60 rounded-full border-4 border-secondary bg-cover bg-no-repeat dark:bg-primary sm:h-40 sm:w-40`}
     >
       <input
         type="file"

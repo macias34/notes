@@ -49,29 +49,29 @@ const ProfilePage = async () => {
   if (notesError) return <p>Error while loading latest notes.</p>;
 
   return (
-    <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10">
+    <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10 lg:h-auto lg:py-5 sm:h-auto sm:py-5">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col items-center justify-center gap-5">
           <Avatar userAvatarUrl={avatar_url!} id={id} />
           <Username id={id} username={outputUsername} />
         </div>
-        <div className="flex items-center justify-center gap-10">
+        <div className="flex items-center justify-center gap-10 text-xl sm:text-lg">
           <div className="flex flex-col items-center gap-3">
-            <span className="text-xl font-semibold">Words learned</span>
-            <span className="text-xl font-bold text-accent">{notesCount}</span>
+            <span className=" font-semibold">Words learned</span>
+            <span className=" font-bold text-accent">{notesCount}</span>
           </div>
           <div className="flex flex-col items-center gap-3">
-            <span className="text-xl font-semibold">Days completed</span>
-            <span className="text-xl font-bold text-accent">
+            <span className=" font-semibold">Days completed</span>
+            <span className="font-bold text-accent">
               {daysCount ? daysCount : 0}
             </span>
           </div>
         </div>
       </div>
       {notes && notes.length > 0 ? (
-        <div className="flex flex-col items-center gap-7">
-          <p className="text-3xl font-semibold">Latest notes</p>
-          <div className="flex gap-20">
+        <div className="flex flex-col items-center gap-7 lg:gap-10">
+          <p className="text-3xl font-semibold sm:text-2xl">Latest notes</p>
+          <div className="flex justify-center gap-20 lg:flex-wrap lg:items-center sm:flex-col sm:gap-10">
             {notes.map((note) => {
               const { word, example, explanation, translation, note_id } = note;
 

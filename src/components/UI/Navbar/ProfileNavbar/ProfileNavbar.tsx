@@ -16,12 +16,12 @@ const ProfileNavbar = () => {
   };
 
   return (
-    <nav className="flex items-center justify-center gap-14 p-5 ">
+    <nav className="flex items-center justify-center gap-14 p-5 text-3xl sm:gap-7 sm:text-2xl ">
       {session ? (
         <>
           <Link
             title="Home page"
-            className="text-3xl transition hover:text-yellow focus:text-yellow"
+            className="  transition hover:text-yellow focus:text-yellow"
             href="/"
           >
             <FaHome />
@@ -29,7 +29,7 @@ const ProfileNavbar = () => {
 
           <Link
             title="Profile"
-            className={`text-3xl transition hover:text-yellow focus:text-yellow ${
+            className={`  transition hover:text-yellow focus:text-yellow ${
               pathname === "/profile" ? "text-yellow" : ""
             }`}
             href="/profile"
@@ -38,7 +38,7 @@ const ProfileNavbar = () => {
           </Link>
           <Link
             title="Notes"
-            className={`text-3xl transition hover:text-yellow focus:text-yellow ${
+            className={`  transition hover:text-yellow focus:text-yellow ${
               pathname === "/profile/notes" ? "text-yellow" : ""
             }`}
             href="/profile/notes"
@@ -47,7 +47,7 @@ const ProfileNavbar = () => {
           </Link>
           <Link
             title="Add note"
-            className={`text-3xl transition hover:text-yellow focus:text-yellow ${
+            className={`  transition hover:text-yellow focus:text-yellow ${
               pathname === "/profile/add-note" ? "text-yellow" : ""
             }`}
             href="/profile/add-note"
@@ -56,7 +56,7 @@ const ProfileNavbar = () => {
           </Link>
           <i
             title="Sign out"
-            className={`cursor-pointer text-3xl transition hover:text-yellow focus:text-yellow`}
+            className={`cursor-pointer   transition hover:text-yellow focus:text-yellow`}
             onClick={handleLogout}
           >
             <HiLogin />
@@ -65,7 +65,7 @@ const ProfileNavbar = () => {
       ) : (
         <>
           <Link
-            className="cursor-pointer text-3xl transition hover:text-yellow focus:text-yellow"
+            className="cursor-pointer   transition hover:text-yellow focus:text-yellow"
             href="/auth"
           >
             Login
