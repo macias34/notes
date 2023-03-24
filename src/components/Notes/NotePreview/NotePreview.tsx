@@ -16,7 +16,9 @@ const NotePreview: FC<NotePreviewProps> = ({
     >
       <h1 className="text-center text-3xl font-bold text-accent">{word}</h1>
       <span>means</span>
-      <h2 className="text-2xl font-bold dark:text-primary ">{translation}</h2>
+      <h2 className="text-center text-2xl font-bold dark:text-primary ">
+        {translation}
+      </h2>
       <div className="flex flex-col items-center gap-4 text-center">
         <span className="italic">{explanation}</span>
         <span className="font-bold italic">{example}</span>
