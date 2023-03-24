@@ -6,7 +6,6 @@ import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import SingleNote from "@/components/Notes/NoteList/SingleNote/SingleNote";
 import { dummySingleNotes, dummyNotes } from "@/constants/home";
 import Link from "next/link";
-import Loading from "./loading";
 
 export default function Home() {
   const filteredNotes = groupBy(dummySingleNotes, (note) => {
