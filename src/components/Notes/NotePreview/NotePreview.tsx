@@ -1,20 +1,19 @@
 "use client";
 
 import { FC } from "react";
-import { NoteProps } from "../Note/Note";
+import type { Note } from "@/supabase/supabase-types";
 
-export type NotePreviewProps = Omit<NoteProps, "id">;
+export type NotePreviewProps = Omit<Note, "id" | "created_at">;
 
 const NotePreview: FC<NotePreviewProps> = ({
   word,
   translation,
   explanation,
   example,
-  className,
 }) => {
   return (
     <div
-      className={`flex min-w-[25rem] max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl ${className}`}
+      className={`flex min-w-[25rem] max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl`}
     >
       <h1 className="text-3xl font-bold text-accent">{word}</h1>
       <span>means</span>

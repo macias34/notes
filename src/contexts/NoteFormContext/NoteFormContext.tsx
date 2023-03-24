@@ -1,22 +1,23 @@
 import { createContext, Dispatch, SetStateAction, ReactElement } from "react";
 
-export const NewNoteSteps = ["word", "translation", "explanation", "example"];
-export interface newNote {
-  word: string;
+export interface NoteFormValues {
+  word: string | null;
   translation: string | null;
   explanation: string | null;
   example: string | null;
 }
 
-export interface NewNoteFunctions {
+export interface NoteFormContextValues {
   next: () => void;
   steps: ReactElement[];
-  newNoteData: newNote;
+  newNoteData: NoteFormValues;
   currentStep: number;
-  goTo: (index: number) => void;
-  setNewNoteData: Dispatch<SetStateAction<newNote>>;
+  goTo: (index: number) => void; // eslint-disable-line unused-imports/no-unused-vars
+  setNewNoteData: Dispatch<SetStateAction<NoteFormValues>>;
   mode: "add" | "edit";
 }
 
-export type dispatch = Dispatch<SetStateAction<newNote>>;
-export const NewNoteContext = createContext({});
+export type dispatch = Dispatch<SetStateAction<NoteFormValues>>;
+export const NoteFormContext = createContext<NoteFormContextValues | null>(
+  null
+);

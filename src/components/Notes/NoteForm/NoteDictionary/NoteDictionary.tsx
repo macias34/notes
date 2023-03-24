@@ -1,6 +1,6 @@
 import {
-  NewNoteContext,
-  NewNoteFunctions,
+  NoteFormContext,
+  NoteFormContextValues,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useContext, useEffect, Fragment, useRef, KeyboardEvent } from "react";
 import { useQuery } from "react-query";
@@ -47,9 +47,11 @@ const fetchWord = async (word: string): Promise<Word[]> => {
 };
 
 const NoteDictionary = () => {
-  const { newNoteData, next } = useContext(NewNoteContext) as NewNoteFunctions;
+  const { newNoteData, next } = useContext(
+    NoteFormContext
+  ) as NoteFormContextValues;
   const containerRef = useRef<HTMLDivElement>(null);
-  const currentWord = newNoteData.word;
+  const currentWord = newNoteData.word!;
 
   const { data, status, refetch } = useQuery(
     `${currentWord}`,

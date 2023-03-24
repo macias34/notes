@@ -1,10 +1,10 @@
 import "server-only";
 import { createServerClient } from "@/supabase/supabase-server";
-import { groupByNote } from "@/supabase/supabase-types";
 import dayjs from "dayjs";
 import { groupBy, sortDateLabels } from "@/helpers/notes/notesHelpers";
 import Link from "next/link";
 import FoldableNoteList from "@/components/Notes/NoteList/FoldableNoteList/FoldableNoteList";
+import { redirect } from "next/navigation";
 
 const getNotes = async () => {
   const supabase = createServerClient();
@@ -13,23 +13,25 @@ const getNotes = async () => {
   const user_id = user.data.user?.id;
 
   const { data: notes, error } = await supabase
-    .from("notes_users")
-    .select(`note:notes(*)`)
+    .from("notes_by_user_id")
+    .select()
     .eq("user_id", user_id);
+
+  if (error) {
+    console.log(error.message);
+    redirect("/profile")
+  };
 
   return {
     notes,
-    error,
   };
 };
 
 const NotesPage = async () => {
-  const { notes, error } = await getNotes();
+  const { notes } = await getNotes();
 
-  if (error) return <p>Unexpected error occured. We&apos;re sorry.</p>;
-
-  const filteredNotes = groupBy(notes as groupByNote[], ({ note }) => {
-    const formattedDate = dayjs(note.created_at).format("YYYY.MM.DD");
+  const filteredNotes = groupBy(notes, ({ created_at }) => {
+    const formattedDate = dayjs(created_at).format("YYYY.MM.DD");
     return formattedDate;
   });
 

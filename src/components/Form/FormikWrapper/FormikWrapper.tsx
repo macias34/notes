@@ -6,7 +6,7 @@ import { FC } from "react";
 
 export interface formikConfig {
   initialValues: object;
-  onSubmit: (values: any) => void;
+  onSubmit: (values: any) => void; // eslint-disable-line unused-imports/no-unused-vars
   validationSchema: object;
 }
 

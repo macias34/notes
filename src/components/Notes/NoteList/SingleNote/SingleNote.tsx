@@ -1,6 +1,12 @@
 import { FC } from "react";
-import { SingleNoteProps } from "@/supabase/supabase-types";
 import Link from "next/link";
+
+export interface SingleNoteProps {
+  word: string | null;
+  created_at: string | null;
+  id: string | null;
+  home?: boolean;
+}
 
 const SingleNote: FC<SingleNoteProps> = ({ word, home, id }) => {
   if (home)

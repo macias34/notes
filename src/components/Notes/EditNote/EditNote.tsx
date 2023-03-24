@@ -1,20 +1,20 @@
 "use client";
 
 import { formikConfig } from "@/components/Form/FormikWrapper/FormikWrapper";
-import { noteFormSchema } from "@/validations/notes/NoteForm";
-import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
+import { noteFormSchema } from "@/validations/notes";
+import { NoteFormValues } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
 import NoteForm from "../NoteForm/NoteForm/NoteForm";
-import { note } from "@/supabase/supabase-types";
+import { Note } from "@/supabase/supabase-types";
 
-const EditNote = ({ data }: { data: note }) => {
+const EditNote = ({ data }: { data: Note }) => {
   const { supabase } = useSupabase();
   const router = useRouter();
 
   const { word, translation, explanation, example, id } = data;
 
-  const initialValues: newNote = {
+  const initialValues: NoteFormValues = {
     word,
     translation,
     explanation,
@@ -23,7 +23,7 @@ const EditNote = ({ data }: { data: note }) => {
 
   const formikConfig: formikConfig = {
     initialValues,
-    onSubmit: async (values: newNote) => {
+    onSubmit: async (values: NoteFormValues) => {
       const { error: noteError } = await supabase
         .from("notes")
         .update(values)

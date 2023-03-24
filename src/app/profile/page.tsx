@@ -3,7 +3,6 @@ import { createServerClient } from "@/supabase/supabase-server";
 import Username from "@/components/Profile/Username/Username";
 import { redirect } from "next/navigation";
 import Avatar from "@/components/Profile/Avatar/Avatar";
-import { note } from "@/supabase/supabase-types";
 import NotePreview from "@/components/Notes/NotePreview/NotePreview";
 import Link from "next/link";
 
@@ -17,7 +16,8 @@ const ProfilePage = async () => {
   const { data: userData, error: userDataError } = await supabase
     .from("users")
     .select()
-    .eq("id", id);
+    .eq("id", id)
+    .single();
   const { count: notesCount, error: notesCountError } = await supabase
     .from("notes_users")
     .select("*", { count: "exact", head: true })
@@ -25,7 +25,7 @@ const ProfilePage = async () => {
 
   if (userDataError || notesCountError)
     return <p>Error while loading user data.</p>;
-  const { username, avatar_url } = userData[0];
+  const { username, avatar_url } = userData;
 
   const { data: count } = await supabase
     .from("days_count_by_user")
@@ -40,11 +40,11 @@ const ProfilePage = async () => {
     : "Click here to enter username :)";
 
   const { data: notes, error: notesError } = await supabase
-    .from("notes_users")
-    .select(`note:notes(*)`)
+    .from("notes_by_user_id")
+    .select()
     .eq("user_id", id)
-    .order("id", { ascending: false })
-    .limit(3);
+    .limit(3)
+    .order("created_at", { ascending: false });
 
   if (notesError) return <p>Error while loading latest notes.</p>;
 
@@ -68,18 +68,17 @@ const ProfilePage = async () => {
           </div>
         </div>
       </div>
-      {notes && notes?.length > 0 ? (
+      {notes && notes.length > 0 ? (
         <div className="flex flex-col items-center gap-7">
           <p className="text-3xl font-semibold">Latest notes</p>
           <div className="flex gap-20">
-            {notes.map(({ note }) => {
-              const { word, example, explanation, translation, id } =
-                note as note;
+            {notes.map((note) => {
+              const { word, example, explanation, translation, note_id } = note;
 
               return (
-                <Link key={word} href={`/profile/notes/${id}`}>
+                <Link key={word} href={`/profile/notes/${note_id}`}>
                   <NotePreview
-                    word={word!}
+                    word={word}
                     example={example}
                     explanation={explanation}
                     translation={translation}

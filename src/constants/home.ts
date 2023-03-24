@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import { SingleNoteProps } from "@/supabase/supabase-types";
+import { SingleNoteProps } from "@/components/Notes/NoteList/SingleNote/SingleNote";
 import { NotePreviewProps } from "@/components/Notes/NotePreview/NotePreview";
 
 export const dummyNotes: NotePreviewProps[] = [
@@ -17,7 +17,9 @@ export const dummyNotes: NotePreviewProps[] = [
   },
 ];
 
-export const dummySingleNotes: SingleNoteProps[] = [
+type DummyNote = Omit<SingleNoteProps, "id">;
+
+export const dummySingleNotes: DummyNote[] = [
   {
     word: "svelte",
     created_at: dayjs().format(),

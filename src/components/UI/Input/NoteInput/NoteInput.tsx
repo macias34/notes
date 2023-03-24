@@ -5,7 +5,6 @@ import useInput, { InputType } from "../useInput";
 import ValidationError from "@/components/Form/ValidationError/ValidationError";
 import { useFormikContext, Field } from "formik";
 import { useState, useEffect } from "react";
-import { newNote } from "@/contexts/NoteFormContext/NoteFormContext";
 import { InputHTMLAttributes } from "react";
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {

@@ -7,8 +7,8 @@ import FormikWrapper, {
 import Steps from "@/components/Form/Steps/Steps";
 import { FC, useState } from "react";
 import {
-  NewNoteContext,
-  newNote,
+  NoteFormContext,
+  NoteFormValues,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 import NoteExample from "@/components/Notes/NoteForm/NoteExample/NoteExample";
 import NoteExplanation from "@/components/Notes/NoteForm/NoteExplanation/NoteExplanation";
@@ -32,15 +32,13 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
     <SubmitNoteForm key={"submitForm"} />,
   ];
 
-  const initialValues = formikConfig.initialValues as newNote;
+  const initialValues = formikConfig.initialValues as NoteFormValues;
 
   const { step, next, currentStep, goTo } = useMultiStepForm(steps);
-  const [newNoteData, setNewNoteData] = useState<newNote>(
-    initialValues as newNote
-  );
+  const [newNoteData, setNewNoteData] = useState<NoteFormValues>(initialValues);
 
   return (
-    <NewNoteContext.Provider
+    <NoteFormContext.Provider
       value={{
         next,
         newNoteData,
@@ -65,7 +63,7 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
           <Steps />
         </FormikWrapper>
       </div>
-    </NewNoteContext.Provider>
+    </NoteFormContext.Provider>
   );
 };
 

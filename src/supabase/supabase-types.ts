@@ -1,52 +1,3 @@
-export interface UserDay {
-  date: string | null;
-  id: number;
-  user_id: string | null;
-}
-
-export interface note {
-  created_at: string | null;
-  example: string | null;
-  explanation: string | null;
-  id: string;
-  translation: string | null;
-  word: string;
-}
-
-export interface noteNoteID {
-  created_at: string | null;
-  example: string | null;
-  explanation: string | null;
-  note_id: string | null;
-  translation: string | null;
-  word: string | null;
-}
-
-export interface groupByNote {
-  note: {
-    created_at: string | null;
-    example: string | null;
-    explanation: string | null;
-    id: string;
-    translation: string | null;
-    word: string | null;
-  };
-}
-
-export interface noteForm {
-  example: string | null;
-  explanation: string | null;
-  translation: string | null;
-  word: string | null;
-}
-
-export interface SingleNoteProps {
-  word: string | null;
-  created_at: string | null;
-  id?: string;
-  home?: boolean;
-}
-
 export type Json =
   | string
   | number
@@ -140,6 +91,17 @@ export interface Database {
           word: string | null;
         };
       };
+      notes_by_user_id: {
+        Row: {
+          created_at: string | null;
+          example: string | null;
+          explanation: string | null;
+          note_id: string | null;
+          translation: string | null;
+          user_id: string | null;
+          word: string | null;
+        };
+      };
     };
     Functions: {
       [_ in never]: never;
@@ -151,4 +113,18 @@ export interface Database {
       [_ in never]: never;
     };
   };
+}
+
+
+export interface noteForm {
+  example: string | null;
+  explanation: string | null;
+  translation: string | null;
+  word: string | null;
+}
+
+export type Note = Database["public"]["Tables"]["notes"]["Row"];
+
+export interface NoteNoteID extends Omit<Note, "id"> {
+  note_id: string | null;
 }

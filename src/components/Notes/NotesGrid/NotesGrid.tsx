@@ -1,13 +1,13 @@
 "use client";
 
 import Button from "@/components/UI/Button/Button";
-import { noteNoteID } from "@/supabase/supabase-types";
+import { NoteNoteID } from "@/supabase/supabase-types";
 import Link from "next/link";
 import { FC, useState } from "react";
 import NotePreview from "../NotePreview/NotePreview";
 
 interface Props {
-  notes: noteNoteID[];
+  notes: NoteNoteID[];
 }
 
 const NotesGrid: FC<Props> = ({ notes }) => {
@@ -41,7 +41,7 @@ const NotesGrid: FC<Props> = ({ notes }) => {
               key={note_id}
             >
               <NotePreview
-                word={word!}
+                word={word}
                 example={
                   showTest && example ? transformTextToHidden(example) : example
                 }

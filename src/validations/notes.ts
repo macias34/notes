@@ -1,5 +1,5 @@
 import { object, string } from "yup";
-import { requiredMessage } from "../messages";
+import { requiredMessage } from "./messages";
 
 export const noteFormSchema = object({
   word: string().trim().required(requiredMessage("word")),

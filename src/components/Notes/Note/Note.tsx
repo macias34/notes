@@ -5,23 +5,9 @@ import Button from "@/components/UI/Button/Button";
 import { useSupabase } from "@/components/Supabase/SupabaseProvider/SupabaseProvider";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { Note } from "@/supabase/supabase-types";
 
-export interface NoteProps {
-  example: string | null;
-  explanation: string | null;
-  id: string;
-  translation: string | null;
-  word: string;
-  className?: string;
-}
-
-const Note: FC<NoteProps> = ({
-  word,
-  translation,
-  explanation,
-  example,
-  id,
-}) => {
+const Note: FC<Note> = ({ word, translation, explanation, example, id }) => {
   const { supabase } = useSupabase();
   const router = useRouter();
 
@@ -38,6 +24,7 @@ const Note: FC<NoteProps> = ({
     }
 
     router.replace("/profile/notes");
+    router.refresh();
   };
 
   return (

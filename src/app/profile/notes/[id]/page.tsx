@@ -1,6 +1,5 @@
 import "server-only";
 import { createServerClient } from "@/supabase/supabase-server";
-import { note } from "@/supabase/supabase-types";
 import { redirect } from "next/navigation";
 import Note from "@/components/Notes/Note/Note";
 import Link from "next/link";
@@ -18,19 +17,26 @@ const getNote = async (id: string) => {
 
   const { id: session_user_id } = user.data.user || {};
 
-  const { data, error } = await supabase.from("notes").select().eq("id", id);
+  const { data, error } = await supabase
+    .from("notes")
+    .select()
+    .eq("id", id)
+    .single();
 
-  if (data?.length === 0) redirect("/profile/notes");
+  if (error || !data) redirect("/profile/notes");
 
-  const { data: user_id } = await supabase
+  const { data: user_id, error: userID_error } = await supabase
     .from("notes_users")
     .select("user_id")
-    .eq("note_id", id);
+    .eq("note_id", id)
+    .single();
+
+  if (userID_error || !user_id) redirect("/profile/notes");
 
   return {
-    user_id: (user_id as any[])[0].user_id,
+    user_id: user_id.user_id,
     session_user_id,
-    data: (data as note[])[0],
+    data,
   };
 };
 
@@ -53,6 +59,7 @@ const SingleNotePage = async ({ params }: Props) => {
           {formattedDate}
         </Link>
         <Note
+          created_at={created_at}
           word={word}
           translation={translation}
           example={example}

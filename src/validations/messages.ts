@@ -1,4 +1,4 @@
-type Message = (label?: string) => string;
+type Message = (label?: string) => string; // eslint-disable-line unused-imports/no-unused-vars
 
 export const tooShortMessage: Message = (label) => {
   return `Too short ${label}, please type some more 😌..`;

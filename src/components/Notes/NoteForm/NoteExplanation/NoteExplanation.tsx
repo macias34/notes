@@ -3,15 +3,15 @@
 import { FC, FormEvent, KeyboardEvent, useContext } from "react";
 import NoteInput from "@/components/UI/Input/NoteInput/NoteInput";
 import {
-  NewNoteContext,
-  NewNoteFunctions,
+  NoteFormContext,
+  NoteFormContextValues,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 import { useFormikContext } from "formik";
 
 const NoteExplanation: FC = () => {
   const { next, setNewNoteData } = useContext(
-    NewNoteContext
-  ) as NewNoteFunctions;
+    NoteFormContext
+  ) as NoteFormContextValues;
 
   const { errors } = useFormikContext();
 

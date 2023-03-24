@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import {
-  NewNoteContext,
-  NewNoteFunctions,
+  NoteFormContext,
+  NoteFormContextValues,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 import Button from "@/components/UI/Button/Button";
 import NotePreview from "@/components/Notes/NotePreview/NotePreview";
 
 const SubmitNoteForm = () => {
-  const { newNoteData, mode } = useContext(NewNoteContext) as NewNoteFunctions;
+  const { newNoteData, mode } = useContext(
+    NoteFormContext
+  ) as NoteFormContextValues;
   const { word, translation, explanation, example } = newNoteData;
   const noteValues = [word, translation, example, explanation];
 

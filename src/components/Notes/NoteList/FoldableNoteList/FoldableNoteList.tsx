@@ -1,9 +1,9 @@
 "use client";
-import { groupByNote } from "@/supabase/supabase-types";
+import { NoteNoteID } from "@/supabase/supabase-types";
 import { FC, useState } from "react";
 import NoteList from "../NoteList";
 interface Props {
-  notesByDate: groupByNote[];
+  notesByDate: NoteNoteID[];
 }
 
 const FoldableNoteList: FC<Props> = ({ notesByDate }) => {

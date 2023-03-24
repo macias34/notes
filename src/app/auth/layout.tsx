@@ -8,7 +8,7 @@ export default async function AuthLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="flex h-screen flex-col items-center justify-start gap-10">
+    <div className="flex h-screen flex-col items-center justify-start">
       <AuthNavbar />
       {children}
     </div>

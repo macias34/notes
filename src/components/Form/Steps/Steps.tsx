@@ -1,13 +1,13 @@
 import { FC, Fragment, useContext } from "react";
 import {
-  NewNoteContext,
-  NewNoteFunctions,
+  NoteFormContext,
+  NoteFormContextValues,
 } from "@/contexts/NoteFormContext/NoteFormContext";
 
 const Steps: FC = () => {
   const { steps, goTo, currentStep } = useContext(
-    NewNoteContext
-  ) as NewNoteFunctions;
+    NoteFormContext
+  ) as NoteFormContextValues;
 
   const switchStep = (index: number) => {
     goTo(index);
