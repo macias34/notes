@@ -13,7 +13,7 @@ const NotePreview: FC<NotePreviewProps> = ({
 }) => {
   return (
     <div
-      className={`flex min-w-[25rem] max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-accent px-10 py-10 text-xl`}
+      className={`flex min-w-[25rem] max-w-xl flex-col items-center justify-center gap-7 rounded-lg border-2 border-secondary px-10 py-10 text-xl dark:border-primary`}
     >
       <h1 className="text-3xl font-bold text-accent">{word}</h1>
       <span>means</span>

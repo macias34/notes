@@ -19,8 +19,8 @@ const getNotes = async () => {
 
   if (error) {
     console.log(error.message);
-    redirect("/profile")
-  };
+    redirect("/profile");
+  }
 
   return {
     notes,

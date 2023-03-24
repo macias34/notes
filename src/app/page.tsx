@@ -15,13 +15,18 @@ export default function Home() {
   const dateLabels = sortDateLabels(filteredNotes);
   return (
     <div className="flex flex-col items-center justify-start gap-10 py-10">
-      <p className="text-[3rem] font-bold">
+      <h1 className="text-[3rem] font-bold">
+        <span className="text-yellow">Rapid</span>
+        <span className="text-accent"> Notes</span>
+      </h1>
+
+      <p className="text-[2.5rem] font-bold">
         Create your <span className="text-accent">word notes</span> with{" "}
         <span className="text-accent">no effort</span>.
       </p>
       <Link
         href="/auth"
-        className="rounded-full border-4 border-secondary px-10 py-4 text-[2rem] font-bold hover:bg-secondary hover:text-primary dark:border-primary dark:hover:bg-primary dark:hover:text-secondary  "
+        className="rounded-full border-4 border-secondary px-10 py-4 text-[2rem] font-bold transition hover:bg-secondary hover:text-primary dark:border-primary dark:hover:bg-primary dark:hover:text-secondary  "
       >
         Start using <span className="text-accent">for free</span>.
       </Link>

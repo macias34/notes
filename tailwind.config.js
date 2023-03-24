@@ -23,6 +23,10 @@ module.exports = {
       gray: "#999",
       black: "black",
       red: "#d22e2e",
+      lightBlue: "#74a4f0",
+      purple: "#3700b7",
+      darkPurple: "#220077",
+      black: "#181a1b",
       transparent: "transparent",
     },
     extend: {
