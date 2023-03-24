@@ -47,17 +47,17 @@ const NotesPage = async () => {
     );
   if (notes)
     return (
-      <div className="flex h-full w-full flex-wrap items-start justify-center gap-5 px-10 py-5">
+      <div className="mt-10 flex h-full w-full flex-wrap items-start justify-center gap-5 px-10 py-5 lg:gap-20 sm:gap-14">
         {dateLabels.map((date) => {
           const notesByDate = filteredNotes[date];
           const urlDate = date.replaceAll(".", "-");
           return (
             <div
               key={date}
-              className="mt-10 flex w-[10%] flex-col items-center gap-1"
+              className="flex w-[10%] flex-col items-center gap-1 sm:w-[30%]"
             >
               <Link href={`/profile/date/${urlDate}`}>
-                <span className="text-xl text-gray transition hover:text-secondary dark:hover:text-primary">
+                <span className="text-xl text-gray transition hover:text-secondary dark:hover:text-primary sm:text-lg">
                   {date}
                 </span>
               </Link>

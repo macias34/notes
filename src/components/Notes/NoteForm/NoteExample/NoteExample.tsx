@@ -43,7 +43,7 @@ const NoteExample: FC = () => {
       onInput={(e) => handleExampleChange(e)}
       placeholder="I always loved chitabot"
       name="example"
-      className="w-[30rem]"
+      className="!w-[30rem] sm:!w-fit"
     />
   );
 };

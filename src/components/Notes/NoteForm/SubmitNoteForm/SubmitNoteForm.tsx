@@ -29,7 +29,7 @@ const SubmitNoteForm = () => {
           </Button>
         </>
       ) : (
-        <h1 className="text-3xl">
+        <h1 className="text-center text-3xl sm:px-10 sm:text-2xl">
           Please fill in all fields to see the preview! :)
         </h1>
       )}

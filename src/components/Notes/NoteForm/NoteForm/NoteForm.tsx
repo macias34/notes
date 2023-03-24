@@ -50,10 +50,10 @@ const NoteForm: FC<Props> = ({ formikConfig, mode }) => {
         mode,
       }}
     >
-      <div className="flex h-full w-full flex-col items-center justify-evenly gap-5">
+      <div className="flex h-full w-full flex-col items-center justify-evenly gap-5 ">
         <FormikWrapper
           formikConfig={formikConfig}
-          className="flex h-4/5 w-full flex-col items-center justify-between"
+          className="flex h-4/5 w-full flex-col items-center justify-between sm:gap-20 sm:py-10"
         >
           <h1 className="text-[2rem]">
             <span className="capitalize">{mode}</span>{" "}

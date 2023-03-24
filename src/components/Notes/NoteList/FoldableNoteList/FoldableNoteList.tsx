@@ -18,7 +18,7 @@ const FoldableNoteList: FC<Props> = ({ notesByDate }) => {
         onClick={toggleFold}
         className={`${
           notesByDate.length >= 10 ? "text-accent" : ""
-        } mb-4 cursor-pointer text-xl font-semibold`}
+        } mb-4 cursor-pointer text-xl font-semibold sm:text-lg`}
       >
         {notesByDate.length} / 10
       </span>

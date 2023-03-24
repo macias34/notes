@@ -14,14 +14,14 @@ const Steps: FC = () => {
   };
 
   return (
-    <div className="flex items-center py-10">
+    <div className="flex items-center justify-center py-10 sm:flex-wrap sm:gap-10">
       {steps.map((step, index) => {
         const pointIndex = index + 1;
         return (
           <Fragment key={index}>
             <div
               onClick={() => switchStep(index)}
-              className={`prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition hover:border-secondary hover:bg-secondary hover:text-primary dark:border-primary dark:hover:bg-primary dark:hover:text-secondary
+              className={`prevent-select flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border-2 text-xl transition hover:border-secondary hover:bg-secondary hover:text-primary dark:border-primary dark:hover:bg-primary dark:hover:text-secondary 
               ${
                 index === currentStep
                   ? "border-secondary bg-secondary text-primary dark:border-primary dark:bg-primary dark:text-secondary"
@@ -32,7 +32,7 @@ const Steps: FC = () => {
               {pointIndex}
             </div>
             {index < steps.length - 1 ? (
-              <div className="h-[1px] w-24 bg-secondary dark:bg-primary"></div>
+              <div className="h-[1px] w-24 bg-secondary dark:bg-primary sm:hidden"></div>
             ) : (
               ""
             )}

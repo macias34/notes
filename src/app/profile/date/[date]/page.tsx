@@ -28,7 +28,7 @@ const DayPage = async ({ params }: Params) => {
 
   return (
     <div className="relative flex flex-col items-center gap-7 p-10">
-      <h1 className="text-3xl font-semibold">
+      <h1 className="text-center text-3xl font-semibold sm:text-2xl">
         Notes for <span className="text-accent">{formattedDate}</span>
       </h1>
       <NotesGrid notes={notes} />

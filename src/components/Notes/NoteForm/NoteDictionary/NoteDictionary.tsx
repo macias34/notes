@@ -77,18 +77,23 @@ const NoteDictionary = () => {
   const renderFetchResult = () => {
     if (isIdle)
       return (
-        <p className="text-3xl">
+        <p className="text-3xl sm:text-center sm:text-2xl">
           Type phrase to get definition from dictionary! 😊
         </p>
       );
-    if (isLoading) return <p className="text-3xl">Loading definition..</p>;
+    if (isLoading)
+      return (
+        <p className="text-3xl sm:text-center sm:text-2xl">
+          Loading definition..
+        </p>
+      );
     if (isSuccess) {
       const { word, meanings } = data[0];
       const [{ definitions }] = meanings;
 
       return (
         <>
-          <p className="pb-10 text-[2rem] font-bold text-accent first-letter:capitalize">
+          <p className="pb-10 text-[2rem] font-bold text-accent first-letter:capitalize sm:text-center sm:text-2xl">
             {word}
           </p>
           <div className="flex flex-col gap-5">
@@ -114,7 +119,7 @@ const NoteDictionary = () => {
       );
     } else
       return (
-        <p className="text-3xl">
+        <p className="text-3xl sm:text-center sm:text-2xl">
           Couldn&apos;t get the definition, we&apos;re sorry 😐.
         </p>
       );
