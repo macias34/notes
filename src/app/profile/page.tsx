@@ -49,7 +49,7 @@ const ProfilePage = async () => {
   if (notesError) return <p>Error while loading latest notes.</p>;
 
   return (
-    <div className="flex h-[90vh] w-full flex-col items-center justify-center gap-10 lg:h-auto lg:py-5 sm:h-auto sm:py-5">
+    <div className="flex w-full flex-col items-center justify-center gap-10 px-10 pb-5 lg:h-auto lg:py-5 sm:h-auto sm:py-5">
       <div className="flex flex-col gap-7">
         <div className="flex flex-col items-center justify-center gap-5">
           <Avatar userAvatarUrl={avatar_url!} id={id} />
