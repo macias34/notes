@@ -5,6 +5,7 @@
 
 # 📖 Table of Contents
 
+- [🅰️ About the app](#🅰️-about-the-app)
   - [🚀 Features](#🚀-features)
 - [💡 Motivation](#💡-motivation)
 - [🚀 Technology stack](#🚀-technology-stack)
@@ -20,8 +21,7 @@
       - [🧑‍🎓 Test yourself](#🧑‍🎓-test-yourself)
 - [📧 Contact](#📧-contact)
 
-
-#️️️️️️️️️️️️️️️️ ℹ️ About the app
+# 🅰️ About the app
 Application for learning and studying words / phrases in English.
 
 ## 🚀 Features
