@@ -1,38 +1,83 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📝 Rapid Notes
 
-## Getting Started
+# 🔍 Preview links :
+- [Home page](https://notes-rho-ashy.vercel.app/)
 
-First, run the development server:
+# 📖 Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  - [🚀 Features](#🚀-features)
+- [💡 Motivation](#💡-motivation)
+- [🚀 Technology stack](#🚀-technology-stack)
+- [🖼️ Screenshots](#🖼️-screenshots)
+  - [🏠 Home page](#🏠-home-page)
+  - [👤 Profile page](#👤-profile-page)
+  - [📝 Add a new note form](#📝-add-a-new-note-form)
+    - [📝 Example form step](#📝-example-form-step)
+  - [📝 Notes](#📝-notes)
+    - [🗒️ All notes page](#🗒️-all-notes-page)
+    - [📝 Single note page](#📝-single-note-page)
+    - [📆 Notes page for a particular day](#📆-notes-page-for-a-particular-day)
+      - [🧑‍🎓 Test yourself](#🧑‍🎓-test-yourself)
+- [📧 Contact](#📧-contact)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#️️️️️️️️️️️️️️️️ ℹ️ About the app
+Application for learning and studying words / phrases in English.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 Features
+- creating and managing your own definitions of words / phrases (with dictionaryapi suggestions)
+- tests for created definitions
+- managing your profile (avatar and username)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 💡 Motivation
+My motivation was to create an app, where I can learn new phrases in English, using my own method, which is :
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Read the dictionary definition
+2. Translate it to your native language
+3. Explain it in English
+4. Come up with some example for this word / phrase
+5. When you have 10 words / phrases, test yourself
 
-## Learn More
+And that's exactly how my app works, you learn new phrases following this whole process.
 
-To learn more about Next.js, take a look at the following resources:
+# 🚀 Technology stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next 13 (React)](https://nextjs.org/) - For front-end
+- [Typescript](https://www.typescriptlang.org/) - For type safety
+- [Tailwind](https://tailwindcss.com/) - For styling
+- [supabase](https://supabase.com/) - As the database, storage and for back-end
+- [Prisma](https://www.prisma.io/) - As a ORM for database
+- [Formik](https://formik.org/) - For managing forms
+- [Framer Motion](https://framer.com/motion) - For animations and transitions between pages
+- [Vercel](https://vercel.com/) - For deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# 🖼️ Screenshots
 
-## Deploy on Vercel
+## 🏠 Home page
+![Home page](documentation_imgs/home.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 👤 Profile page
+![Profile page](documentation_imgs/profile.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📝 Add a new note form
+### 📝 Example form step
+![Example form step](documentation_imgs/add-note.png)
+
+## 📝 Notes
+### 🗒️ All notes page
+![Notes page](documentation_imgs/notes.png)
+
+### 📝 Single note page
+![Single note page](documentation_imgs/note.png)
+
+
+### 📆 Notes page for a particular day
+
+![Notes page for a particular day](documentation_imgs/day.png)
+
+#### 🧑‍🎓 Test yourself
+![Test yourself](documentation_imgs/day-test.png)
+
+
+# 📧 Contact
+Feel free to contact me, message me on Discord @macias#9277 😄🙏.
